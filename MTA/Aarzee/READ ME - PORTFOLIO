@@ -1,0 +1,72 @@
+#INTRODUCTION
+
+Hello All,
+
+This is my portfolio web app which is constantly being updated as and when i get time.
+So, kindly ignore the comments, the sysouts for debugging and other informal mix-ups which may seem unprofessional.
+
+I am updating and improving the app constantly so it may not remain the same for a longer period of time.
+
+<!-- END OF INTRODUCTION -->
+
+
+
+#FEATURES:
+
+FRONT_END Features: 
+
+Thymeleaf: Demonstrates use of conditionals, actions, model mapping etc.
+CSS: demonstrates use of custom CSS for styling using classes or IDs etc.
+Bootstrap: Demonstrates use of classes for various purposes such as forms, inputs, glyph icons, buttons, container, panel etc.
+JavaScript and JQuery: Demonstrates use of custom front end validations, events such as key up, button clicks, focus, blur, binding changes etc.
+Ajax: Demonstrates use of Ajax call for server side validation.
+Regular Expressions: Demonstrates use of regular expressions in Jquery for validations and pattern matching.
+
+BACK_END Features: Uses Java and Spring MVC
+
+Demonstrates use of industry standard project structure using models and POJO's, DAO's, service layer etc.
+Demonstrates use of request mapping to appropriate HTTP methods such as GET, POST, PUT or DELETE methods.
+Demonstrates use of properties from properties file.
+Demonstrates use of reading data from requests and sending data with response using request parameters, model attributes and response body.
+Demonstrates use of controllers to process the actions, in turn demonstrating the use of core java and logic in both controllers and in DAO implementation classes. 
+Demonstrates use of dependency injection and bean configurations.
+Demonstrates use of object persistence using Spring Data JPA
+Demonstrates use of simple SHA hashing for password encryption
+
+
+
+
+1. REGISTER PAGE:
+Register page allows a user to be registered to use the app.
+verifies the format of the email, that is someone@somewhere.com
+It uses AJAX to check if the email you are trying to register already exists.
+It disables the register button if an email exists already.
+For password, it checks for the set rules, such as length, caps, small and special characters.
+Disables submit button if password rules not met.
+It also shows a tip box for you to see what rules have been met for password as you enter your password.
+Passwords must match in confirm password field or submit button is disabled.
+Gives a message that everything is good when in fact everything is good.
+On submit, redirects you to the login page upon success.
+
+
+<!-- END OF REGISTER PAGE -->
+  
+  
+2. LOGIN PAGE:
+
+It features a simple login process.
+Allows you to proceed to index page upon successful login.
+Verifies the format of email that is someone@someone.com
+Gives an error message on login failure.
+
+
+3. INDEX PAGE:
+
+Is the home page for the web app.
+Acts like a single page application by making use of thymeleaf fragments.
+The navigation bar is linked to various actions and hence controller using mappings.
+Each action is performed independently and results are returned.
+Uses thymeleaf fragments to show results by using conditionals.
+Gives the sense of single page page application.
+
+

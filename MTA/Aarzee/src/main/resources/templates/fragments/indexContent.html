@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<div th:fragment="dashContent" >
+<div th:if="${userDetails}"> 
+
+<!-- SOMETHING USEFUL
+
+<span th:text="${someObject.someProperty != null} ? ${someObject.someProperty} : 'null value!'">someValue</span>
+<span th:text="${someObject.someProperty != null} ? ${someObject.someProperty}">someValue</span>
+ -->
+
+<p> Your User Details Are As Follows</p>
+
+User Name:  <p th:text="${loggedInUser.email_ID}"></p>
+Password :  <p th:text="${loggedInUser.password}"></p>
+
+First Name: <p th:text="${userDetails.firstname}"> </p>
+Last Name : <p th:text="${userDetails.lastname}"> </p>
+Phone No  : <p th:text="${userDetails.phone}"> </p>
+
+</div>
+
+<!-- 
+
+
+
+<div th:if="${userDetails.firstname == null}">
+Caution: Your Details DO NOT exist!
+
+
+    <div id="addUserDetailsForm" >
+           <form class="form-horizontal" irole="form" th:action="@{/indexAction(actVal='addUserDetails')}" method="POST">
+            
+             <div class="form-group">
+            	<div class="input-group">
+       			<strong>Please Add Your Details:</strong>
+       			</div>
+       		
+       		<input type="submit" class="form-control btn btn-info btn-block" value="Add Details"/>
+       		
+        	</div>
+        	
+       
+        </form>
+        
+       </div>
+       
+     </div>
+     
+     
+      -->
+     
+
+</div>
+
+
+<div th:fragment="myDetailsContent" >
+<div th:if="${myDetSuccess}" th:text="${myDetSuccess}"> </div>
+</div>
+
+<div th:fragment="myProfileContent" >
+<div th:if="${myProfSuccess}" th:text="${myProfSuccess}"> </div>
+</div>
+
+<div th:fragment="editProfileContent" >
+<div th:if="${editProfSuccess}" th:text="${editProfSuccess}"> </div>
+</div>
+
+</body>
+
+
+</html>
+

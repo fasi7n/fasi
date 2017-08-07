@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<div th:fragment="navbarMenu" >
+
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" th:href="@{''}">Fasi - MT Application</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+         <li><a href="#" th:href="@{/indexAction(actVal='dashboardAction')}"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard</a></li>
+         <li class="dropdown">
+          <a href="#" th:href="@{/indexAction(actVal='myDetailsAction')}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Details <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" th:href="@{/indexAction(actVal='myProfileAction')}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> My Profile</a></li>
+            <li><a href="#" th:href="@{/indexAction(actVal='editProfileAction')}"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Edit Profile</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" th:href="@{''}">My Products</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" th:href="@{''}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" th:href="@{''}">Category 1</a></li>
+            <li><a href="#" th:href="@{''}">Category 2</a></li>
+            <li><a href="#" th:href="@{''}">Category 3</a></li>
+            <li><a href="#" th:href="@{''}">Category 4</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" th:href="@{''}">Add New Products</a></li>
+          </ul>
+        </li>
+
+     
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">New User</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Remove User</a></li>
+          </ul>
+      </li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><span class="glyphicon glyphicon-user" aria-hidden="true" th:text="${loggedInUser.email_ID}"></span>  <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" target="_blank"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+         </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+</body>
+
+
+</html>
+

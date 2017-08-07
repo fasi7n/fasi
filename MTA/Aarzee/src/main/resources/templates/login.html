@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Fasi - MT Application Demo</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+ 
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.1.1-1/jquery.min.js}"></script>
+            
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/2.1.47/jquery.validate.min.js"
+            th:src="@{/webjars/jquery-form-validator/2.1.47/jquery.form-validator.min.js}"></script>        
+ 
+    <link href="../static/css/customstyle.css"
+          th:href="@{css/customstyle.css}" rel="stylesheet" media="screen"/>
+          
+          
+   
+   	<script type="text/javascript" src="../static/js/loginScripts.js"
+   			th:src="@{js/loginScripts.js}"></script>
+         
+          
+</head>
+
+
+<body>
+<div class ="container" id="loginPage"> 
+
+<div class="row">
+       
+       <div class="boxedContent col-sm-6 col-md-4 col-md-offset-4" id="loginPanel">
+       <div class="panel panel-default">
+       
+       
+       <div class="registerMsg panel-heading">
+      	<h4>Fasi - MT Application Demo</h4> 
+      	</div>
+      	              
+        <div class="loginFormArea form-horizontal">
+        
+       
+        <div class="registerMsg panel-heading">
+      	<strong>Please Enter Your Credentials to Login</strong> 
+      	</div>
+      	
+      	 
+      	      	
+        <form class="form-horizontal" id="loginForm" role="form" th:action="@{/login}" th:object="${loginCredentials}" method="POST">
+        <fieldset>
+        
+        <div class="row">        
+        <div class="col-sm-12 col-md-10  col-md-offset-1">
+        
+        <div class="errorSpace"><strong> <p th:if="${error}" th:text="${error}"></p> </strong></div>  
+        
+        <div class="registerSuccessSpace"><strong> <p th:if="${registerSuccess}" th:text="${registerSuccess}"></p> </strong></div> 
+        
+             <div class="form-group">
+            	<div class="input-group">
+    			<strong>E-Mail: <label for="email" class="col-lg-2 control-label">  </label></strong>
+    			</div>
+    		
+    			<div class="input-group">
+    			<span class="input-group-addon">
+    			<i class="glyphicon glyphicon-user"></i>
+				</span>
+    			<input type="email" class="form-control" id="email" name="app_email_id" required="required" th:field="*{email_ID}"> </input>
+    			</div>
+    		</div>
+    		
+                      
+            
+             <div class="form-group">
+            	<div class="input-group">
+   			 	<strong>Password: <label for="password" class="col-lg-2 control-label"></label></strong>
+    			</div>
+    			
+      			<div class="input-group">
+   				<span class="input-group-addon">
+				<i class="glyphicon glyphicon-lock"></i>
+				</span>
+				<input type="password" class="form-control" id="password" name="app_password" required="required" th:field="*{password}"> </input>
+    			</div>
+ 			 </div>
+ 			 
+ 			
+       
+       		<div class="form-group">
+            	
+        		<input type="submit" class="form-control btn btn-primary btn-block" value="Login"/>
+        		
+        	</div>
+        	
+        	 <div class="form-group">
+       		 	
+        	 	<input type="reset" class="form-control btn btn-warning btn-block" value="Clear"/>
+        		
+        	</div>
+        
+        </div>
+        </div>	
+        	
+       </fieldset>
+       
+        </form>
+        
+        <div id="newUserForm" >
+           <form class="form-horizontal" irole="form" th:action="@{/newUserRegistration}" method="GET">
+            
+             <div class="form-group">
+            	<div class="input-group">
+       			<strong>New User? Please Register</strong>
+       			</div>
+       		
+       		<input type="submit" class="form-control btn btn-info btn-block" value="Register"/>
+       		
+        	</div>
+        	
+       
+        </form>
+        
+       </div>
+        
+        </div>
+      
+		
+        
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        
+    </body>
+    
+    
+    
+    
+</html>

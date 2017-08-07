@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en" th:replace="fragments/header :: header">
+</head>
+
+<!-- end of header -->
+
+
+<body>
+	<div id="indexPage">
+		<div id="navDiv>">
+
+			<div th:replace="fragments/navbar :: navbarMenu"></div>
+
+
+		</div>
+		<!-- end of nav bar -->
+
+
+		<div class="app-container container">
+		<div layout:fragment="content">
+
+				<div class="dashboardSpace">
+					<!--  <strong> <p th:if="${dashSuccess}" th:text="${dashSuccess}"></p> </strong>
+         			<div th:if="${userInfo}"  th:replace="fragments/indexContent :: dashContent"></div>
+         			 -->
+					<div th:switch="${myDashSelector}">
+						<div th:case="'dashSuccess'"
+							th:replace="fragments/indexContent :: dashContent"></div>
+					</div>
+				</div>
+
+
+				<div class="myDetailsSpace">
+
+					<div th:switch="${myDetailsSelector}">
+						<div th:case="'myDetSuccess'"
+							th:replace="fragments/indexContent :: myDetailsContent"></div>
+						<div th:case="'myProfSuccess'"
+							th:replace="fragments/indexContent :: myProfileContent"></div>
+						<div th:case="'editProfSuccess'"
+							th:replace="fragments/indexContent :: editProfileContent"></div>
+					</div>
+
+				</div>
+
+
+		  <!-- <div th:if="${myDetSuccess}" th:replace="fragments/indexContent :: myDetailsContent"></div>
+          <div th:if="${myProfSuccess}" th:replace="fragments/indexContent :: myDetailsContent"></div>
+          <div th:if="${editProfSuccess}" th:replace="fragments/indexContent :: myDetailsContent"></div>
+          
+        
+  -->
+
+
+
+			</div>
+		</div>
+
+
+	</div>
+</body>
+
+
+
+
+
+
+
+</html>

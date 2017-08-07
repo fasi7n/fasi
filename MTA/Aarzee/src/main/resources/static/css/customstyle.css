@@ -1,0 +1,80 @@
+.registerFormArea {
+    background-color: #F0FFFF; 
+    padding:20px;  
+    margin-top: 20px;
+}
+
+.loginFormArea {
+    background-color: #F0FFFF; 
+    padding:20px;  
+    
+}
+
+#goBackForm{
+	margin-left: auto ;
+  	margin-right: auto ;
+}
+
+#registerPage, #loginPage {
+	margin-top:40px
+}
+
+
+.registerMsg {
+	 padding: 5px 10px;
+}
+   
+ .errorSpace {
+ padding: 5px;
+ }
+    
+
+.boxedContent{
+	
+	padding:auto;
+}
+
+ul, li {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+#passwordRules {
+    position:absolute;
+    bottom:-25px;
+    padding:10px;
+    background:#f0f8ff;
+    border-radius:4px;
+    box-shadow:0 2px 3px #98afc7;
+    border:1px solid #737c1;
+    font-size:0.90em;
+}
+
+
+#passwordRules::before {    
+    content: "\25B2";
+    position:absolute;
+    top:-10px;
+    left:45%;
+    font-size:15px;
+    line-height:16px;
+    color:#ff0000;    
+}
+
+.notAllowedPassRules{
+    background:url(../../images/icons/png/circle-x-2x.png) no-repeat 0 50%;
+    padding-left:25px;
+    line-height:25px;
+    color:#ff0000;
+}
+.allowedPassRules {
+    background:url(../../images/icons/png/check-2x.png) no-repeat 0 50%;
+    padding-left:25px;
+    line-height:25px;
+    color:#0000ff;
+}
+
+#passwordRules {
+   display:none;
+}
