@@ -25,9 +25,7 @@ public class LoginActionController {
 
 	@Autowired
 	private UserCredentialsService userCredServObj;
-	
-
-	
+		
 		
 	@PostMapping
 	public String loginAction(@ModelAttribute LoginCredentials loginCredentials, Model model)
@@ -39,8 +37,9 @@ public class LoginActionController {
 		
 		UserCredentials userCredentials = userCredServObj.getUserByEmail(loginCredentials.getEmail_ID());
 				
-		if(userCredentials==null)
+		if((userCredentials==null) || !(userCredentials.getPassword().equals(SimpleSHADigest.mySha1(loginCredentials.getPassword()))))
 		{
+			
 			model.addAttribute("error", "Incorrect Login Details");
 			//return "redirect:/";
 			
@@ -64,7 +63,7 @@ public class LoginActionController {
 			
 			else
 				{
-				model.addAttribute("error", "Internal Error");
+				model.addAttribute("error", "Internal Error - Contact Admin");
 				//return "redirect:/";
 				
 				return "login";

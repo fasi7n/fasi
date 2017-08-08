@@ -56,16 +56,16 @@ Caution: Your Details DO NOT exist!
 </div>
 
 
-<div th:fragment="myDetailsContent" >
-<div th:if="${myDetSuccess}" th:text="${myDetSuccess}"> </div>
+<div th:fragment="searchTxnContent" >
+<div th:if="${successfulSearchTxn}" th:text="${successfulSearchTxn}"> </div>
 </div>
 
-<div th:fragment="myProfileContent" >
-<div th:if="${myProfSuccess}" th:text="${myProfSuccess}"> </div>
+<div th:fragment="newTxnContent" >
+<div th:if="${successfulNewTxn}" th:text="${successfulNewTxn}"> </div>
 </div>
 
-<div th:fragment="editProfileContent" >
-<div th:if="${editProfSuccess}" th:text="${editProfSuccess}"> </div>
+<div th:fragment="reportsContent" >
+<div th:if="${successfulReports}" th:text="${successfulReports}"> </div>
 </div>
 
 </body>

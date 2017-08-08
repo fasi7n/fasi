@@ -48,27 +48,60 @@ public class UserIndexController {
 			dashBoardProcessing(model, loggedInUser.getEmail_ID());
 		}
 		
-		else if(actVal.equalsIgnoreCase("myDetailsAction"))
+				
+		else if(actVal.equalsIgnoreCase("searchTxnAction"))
 		{
 			
-			myDetailsProcessing(model);
+			//myProfileProcessing(model);
+			searchTxnProcessing(model);
+		}
+		
+		else if(actVal.equalsIgnoreCase("newTxnAction"))
+		{
+			
+			//editProfileProcessing(model);
+			newTxnProcessing(model);
+		}
+		
+		else if(actVal.equalsIgnoreCase("reportsAction"))
+		{
+			
+			//myDetailsProcessing(model);
+			reportsProcessing(model);
+		}
+		
+		else if(actVal.equalsIgnoreCase("complianceSetAction"))
+		{
+			
+			//myDetailsProcessing(model);
+			complainceSetProcessing(model);
+		}
+		
+		else if(actVal.equalsIgnoreCase("exchangeRatesAction"))
+		{
+			
+			//myDetailsProcessing(model);
+			exchangeRatesProcessing(model);
+		}
+		
+		else if(actVal.equalsIgnoreCase("userCtrlAction"))
+		{
+			userCtrlProcessing(model);
+			//myDetailsProcessing(model);
+		}
+		
+		else if(actVal.equalsIgnoreCase("curUserCtrlAction"))
+		{
+			curUserCtrlProcessing(model);
+			//myDetailsProcessing(model);
 		}
 		
 		
-		else if(actVal.equalsIgnoreCase("myProfileAction"))
+		else if(actVal.equalsIgnoreCase("logoutAction"))
 		{
-			
-			myProfileProcessing(model);
+			logoutProcessing(model);
+			//myDetailsProcessing(model);
 		}
-		
-		else if(actVal.equalsIgnoreCase("editProfileAction"))
-		{
-			
-			editProfileProcessing(model);
-		}
-		
-		
-		
 		
 		return mav;
 		
@@ -80,7 +113,7 @@ public class UserIndexController {
 	{
 		
 		model.addAttribute("myDashSelector", "dashSuccess");
-		model.addAttribute("dashSuccess", "Have to display user dashboard here");
+		model.addAttribute("successOnDashboard", "Have to display user dashboard here");
 		
 		model.addAttribute("userInfo", "userInfo");		
 		model.addAttribute("userCredentials", userCredentials);
@@ -99,36 +132,76 @@ public class UserIndexController {
 
 	
 	
-	public void myDetailsProcessing(Model model)
+	public void searchTxnProcessing(Model model)
 	{
 		
-		model.addAttribute("myDetailsSelector", "myDetSuccess");
-		model.addAttribute("myDetSuccess", "Have to display my details here");
+		model.addAttribute("transactionSelector", "searchTxnSuccess");
+		model.addAttribute("successfulSearchTxn", "Have to display SEARCH transactions here");
 	
 		
 	}
 
 	
 
-	public void myProfileProcessing(Model model)
+	public void newTxnProcessing(Model model)
 	{
 		
-		model.addAttribute("myDetailsSelector", "myProfSuccess");
-		model.addAttribute("myProfSuccess", "Have to display MY PROFILE here");
-	
-		
+		model.addAttribute("transactionSelector", "newTxnSuccess");
+		model.addAttribute("successfulNewTxn", "Have to display NEW transaction here");
+			
 	}
 	
 
-	public void editProfileProcessing(Model model)
+	public void reportsProcessing(Model model)
 	{
 		
-		model.addAttribute("myDetailsSelector", "editProfSuccess");
-		model.addAttribute("editProfSuccess", "Have to display EDIT PROFILE FORM here");
+		model.addAttribute("reportsSelector", "reportsSuccess");
+		model.addAttribute("successfulReports", "Have to display REPORTS here");
+			
+	}
 	
+	public void complainceSetProcessing(Model model)
+	{
 		
+		model.addAttribute("adminCtrlSelector", "complaianceSetSuccess");
+		model.addAttribute("successfulSetCompliance", "Have to display COMPLAINCES here");
+			
+	}
+	
+	public void exchangeRatesProcessing(Model model)
+	{
+		
+		model.addAttribute("adminCtrlSelector", "exchangeRatesSuccess");
+		model.addAttribute("successfulRates", "Have to display RATES SETTINGS here");
+			
 	}
 	
 	
+	public void userCtrlProcessing(Model model)
+	{
+		
+		model.addAttribute("adminCtrlSelector", "userCtrlSuccess");
+		model.addAttribute("successfulUserCtrl", "Have to display USER CONTROLS here");
+			
+	}
+	
+	public void curUserCtrlProcessing(Model model)
+	{
+		
+		model.addAttribute("curUserSelector", "curUserCtrlSuccess");
+		model.addAttribute("successfulcurUserCtrl", "Have to display CURRENT USER SETTINGS HERE here");
+			
+	}
+	
+	
+	
+	
+	public void logoutProcessing(Model model)
+	{
+		
+		model.addAttribute("curUserSelector", "curUserLogoutSuccess");
+		model.addAttribute("successfulLogout", "Have to ADD LOGOUT CODE ON CLICK");
+			
+	}
 	
 }

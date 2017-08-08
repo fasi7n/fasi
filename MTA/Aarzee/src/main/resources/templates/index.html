@@ -32,19 +32,37 @@
 				</div>
 
 
-				<div class="myDetailsSpace">
+				<div class="transactionsSpace">
 
-					<div th:switch="${myDetailsSelector}">
-						<div th:case="'myDetSuccess'"
-							th:replace="fragments/indexContent :: myDetailsContent"></div>
-						<div th:case="'myProfSuccess'"
-							th:replace="fragments/indexContent :: myProfileContent"></div>
-						<div th:case="'editProfSuccess'"
-							th:replace="fragments/indexContent :: editProfileContent"></div>
+					<div th:switch="${transactionSelector}">
+						<div th:case='searchTxnSuccess'
+							th:replace="fragments/indexContent :: searchTxnContent"></div>
+						<div th:case='newTxnSuccess'
+							th:replace="fragments/indexContent :: newTxnContent"></div>
+						<!--  <div th:case="'editProfSuccess'"
+							th:replace="fragments/indexContent :: editProfileContent"></div> -->
 					</div>
 
 				</div>
 
+
+					<div class="reportsSpace">
+					<div th:switch="${reportsSelector}">
+						<div th:case='reportsSuccess'
+							th:replace="fragments/indexContent :: reportsContent"></div>
+						<!--  <div th:case="'editProfSuccess'"
+							th:replace="fragments/indexContent :: editProfileContent"></div> -->
+					</div>
+					</div>
+					
+					<div class="adminControlSpace">
+					<div th:switch="${reportsSelector}">
+						<div th:case='reportsSuccess'
+							th:replace="fragments/indexContent :: reportsContent"></div>
+						<!--  <div th:case="'editProfSuccess'"
+							th:replace="fragments/indexContent :: editProfileContent"></div> -->
+					</div>
+					</div>
 
 		  <!-- <div th:if="${myDetSuccess}" th:replace="fragments/indexContent :: myDetailsContent"></div>
           <div th:if="${myProfSuccess}" th:replace="fragments/indexContent :: myDetailsContent"></div>

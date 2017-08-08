@@ -22,44 +22,51 @@
       <ul class="nav navbar-nav">
          <li><a href="#" th:href="@{/indexAction(actVal='dashboardAction')}"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Dashboard</a></li>
          <li class="dropdown">
-          <a href="#" th:href="@{/indexAction(actVal='myDetailsAction')}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transactions <span class="caret"></span></a>
+          <a href="#" th:href="@{''}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transactions <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" th:href="@{/indexAction(actVal='myProfileAction')}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Search Transaction</a></li>
-            <li><a href="#" th:href="@{/indexAction(actVal='editProfileAction')}"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Transaction</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#" th:href="@{''}">My Products</a></li>
+            <li><a href="#" th:href="@{/indexAction(actVal='searchTxnAction')}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Search Transaction</a></li>
+            <li><a href="#" th:href="@{/indexAction(actVal='newTxnAction')}"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Transaction</a></li>
+          <!--  <li role="separator" class="divider"></li>
+            <li><a href="#" th:href="@{''}">My Products</a></li> -->  
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" th:href="@{''}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+          <a href="#" th:href="@{/indexAction(actVal='reportsAction')}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" th:href="@{''}">Category 1</a></li>
-            <li><a href="#" th:href="@{''}">Category 2</a></li>
-            <li><a href="#" th:href="@{''}">Category 3</a></li>
-            <li><a href="#" th:href="@{''}">Category 4</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#" th:href="@{''}">Add New Products</a></li>
+            <li><a href="#" th:href="@{''}">Report 1</a></li>
+            <li><a href="#" th:href="@{''}">Report 2</a></li>
+            <li><a href="#" th:href="@{''}">Report 3</a></li>
+            <li><a href="#" th:href="@{''}">Report 4</a></li>
+          <!--    <li role="separator" class="divider"></li>
+            <li><a href="#" th:href="@{''}">Add New Products</a></li> -->
           </ul>
         </li>
 
      
       <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Users <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Controls <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Overview</a></li>
-            <li><a href="#">New User</a></li>
+            <li><a href="#" th:href="@{/indexAction(actVal='complianceSetAction')}">Compliance Settings</a></li>
+            <li><a href="#">Existing Rules</a></li>
+            <li><a href="#">Add New Rules</a></li>
+            
             <li role="separator" class="divider"></li>
-            <li><a href="#">Remove User</a></li>
+            <li><a href="#" th:href="@{indexAction(actVal='exchangeRatesAction')}">Exchange Rates</a></li>
+            
+             <li role="separator" class="divider"></li>
+            <li><a href="#" th:href="@{indexAction(actVal='userCtrlAction')}">User Controls</a></li>
+           
+           
           </ul>
       </li>
       
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" id="rightNavBar">
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ><span class="glyphicon glyphicon-user" aria-hidden="true" th:text="${loggedInUser.email_ID}"></span>  <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" target="_blank"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+            <li><a href="#" target="_blank" th:href="@{indexAction(actVal='curUserCtrlAction')}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> User Settings</a></li>
+            <li><a href="#" th:href="@{indexAction(actVal='logoutAction')}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
          </ul>
         </li>
       </ul>
