@@ -7,8 +7,10 @@ import org.springframework.stereotype.Component;
 import com.portfolio.commons.SimpleSHADigest;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.model.UserDetails;
+import com.portfolio.model.UserRoles;
 import com.portfolio.service.UserCredentialsService;
 import com.portfolio.service.UserDetailsService;
+import com.portfolio.service.UserRolesService;
 
 @Component
 public class LoadDummyContent {
@@ -20,10 +22,16 @@ public class LoadDummyContent {
 	private UserDetails userDetails;
 	
 	@Autowired
-	private UserCredentialsService userCredServObj;
+	private UserRoles userRole;
+	
+	@Autowired
+	private UserCredentialsService userCredService;
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
+	
+	@Autowired
+	private UserRolesService userRolesService;
 	
 	
 	public void loadDummyData(){
@@ -37,13 +45,17 @@ public class LoadDummyContent {
 		userDetails.setLastname("Uddin");
 		userDetails.setPhone("123-456-7890");
 		
-		String actionResult1 = userCredServObj.createUserByEmail(userCredentials);
+		userRole.setEmail_ID("fasi@fasi.com");
+		userRole.setRolename("ADMIN");
+		
+		String actionResult1 = userCredService.createUserByEmail(userCredentials);
 		String actionResult2 = userDetailsService.createUserDetailsByEmail(userDetails);
+		String actionResult3 = userRolesService.createUserRolesByEmail(userRole);
 		
-		if(actionResult1.equalsIgnoreCase("success") && actionResult2.equalsIgnoreCase("success"))
+		if(actionResult1.equalsIgnoreCase("success") && actionResult2.equalsIgnoreCase("success") && actionResult3.equalsIgnoreCase("success"))
 		System.out.println("Dummy user created with email = " + userCredentials.getEmail_ID() + " and password = Fasi123!#");
-		System.out.println("Dummy user Detailas created with First Name: " + userDetails.getFirstname() + " Last name: " + userDetails.getLastname() + " Phone: " + userDetails.getPhone());
-		
+		System.out.println("Dummy user Details created with First Name: " + userDetails.getFirstname() + " Last name: " + userDetails.getLastname() + " Phone: " + userDetails.getPhone());
+		System.out.println("Dummy user ROLE created with Role Name: " + userRole.getRolename());
 		
 	}
 

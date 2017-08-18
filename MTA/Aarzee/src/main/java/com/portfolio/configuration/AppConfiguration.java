@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import com.portfolio.LoadDummyContent;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.model.UserDetails;
+import com.portfolio.model.UserRoles;
 import com.portfolio.service.LoggerService;
 import com.portfolio.service.UserCredentialsService;
 import com.portfolio.service.UserCredentialsServiceImpl;
@@ -49,5 +50,12 @@ public class AppConfiguration {
 	{
 		return new UserDetails();
 	}
+	
+	@Bean
+	public UserRoles userRoles()
+	{
+		return new UserRoles();
+	}
+	
 	
 }

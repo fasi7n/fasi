@@ -164,7 +164,7 @@ public class UserIndexController {
 	{
 		
 		model.addAttribute("adminCtrlSelector", "complaianceSetSuccess");
-		model.addAttribute("successfulSetCompliance", "Have to display COMPLAINCES here");
+		model.addAttribute("successfulSetCompliance", "Have to display COMPLIANCES here");
 			
 	}
 	
@@ -201,7 +201,7 @@ public class UserIndexController {
 		
 		model.addAttribute("curUserSelector", "curUserLogoutSuccess");
 		model.addAttribute("successfulLogout", "Have to ADD LOGOUT CODE ON CLICK");
-			
+		
 	}
 	
 }

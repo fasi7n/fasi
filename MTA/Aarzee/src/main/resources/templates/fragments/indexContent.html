@@ -68,6 +68,26 @@ Caution: Your Details DO NOT exist!
 <div th:if="${successfulReports}" th:text="${successfulReports}"> </div>
 </div>
 
+<div th:fragment="complianceSetContent" >
+<div th:if="${successfulSetCompliance}" th:text="${successfulSetCompliance}"> </div>
+</div>
+
+<div th:fragment="exchangeRateContent" >
+<div th:if="${successfulRates}" th:text="${successfulRates}"> </div>
+</div>
+
+<div th:fragment="userControlContent" >
+<div th:if="${successfulUserCtrl}" th:text="${successfulUserCtrl}"> </div>
+</div>
+
+<div th:fragment="currentUserContent" >
+<div th:if="${successfulcurUserCtrl}" th:text="${successfulcurUserCtrl}"> </div>
+</div>
+
+<div th:fragment="logoutContent" >
+<div th:if="${successfulLogout}" th:text="${successfulLogout}"> </div>
+</div>
+
 </body>
 
 

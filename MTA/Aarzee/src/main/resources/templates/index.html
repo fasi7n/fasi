@@ -56,13 +56,30 @@
 					</div>
 					
 					<div class="adminControlSpace">
-					<div th:switch="${reportsSelector}">
-						<div th:case='reportsSuccess'
-							th:replace="fragments/indexContent :: reportsContent"></div>
-						<!--  <div th:case="'editProfSuccess'"
-							th:replace="fragments/indexContent :: editProfileContent"></div> -->
+					<div th:switch="${adminCtrlSelector}">
+						<div th:case='complaianceSetSuccess'
+							th:replace="fragments/indexContent :: complianceSetContent"></div>
+						<div th:case='exchangeRatesSuccess'
+							th:replace="fragments/indexContent :: exchangeRateContent"></div>
+						<div th:case='userCtrlSuccess'
+							th:replace="fragments/indexContent :: userControlContent"></div>
+						<!-- <div th:case='exchangeRatesSuccess'
+							th:replace="fragments/indexContent :: exchangeRateContent"></div>  -->
 					</div>
 					</div>
+					
+					<div class="curUserSpace">
+					<div th:switch="${curUserSelector}">
+						<div th:case='curUserCtrlSuccess'
+							th:replace="fragments/indexContent :: currentUserContent"></div>
+						<div th:case='curUserLogoutSuccess'
+							th:replace="fragments/indexContent :: logoutContent"></div>
+						
+						<!-- <div th:case='exchangeRatesSuccess'
+							th:replace="fragments/indexContent :: exchangeRateContent"></div>  -->
+					</div>
+					</div>
+					
 
 		  <!-- <div th:if="${myDetSuccess}" th:replace="fragments/indexContent :: myDetailsContent"></div>
           <div th:if="${myProfSuccess}" th:replace="fragments/indexContent :: myDetailsContent"></div>

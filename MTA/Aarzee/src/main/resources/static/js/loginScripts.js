@@ -1,4 +1,4 @@
- $(document).ready(function () {
+ jQuery(document).ready(function () {
     	   $("#password, #passwordConfirm").keyup(verifyConfirmPassword);
     	});
  
@@ -38,7 +38,7 @@
  		}
 }
  
- $(document).ready(function() {
+ jQuery(document).ready(function() {
  $("#password").keyup(function() {
 	 
 	 var password = $(this).val();	 
@@ -95,7 +95,7 @@
  });
  
  
- $(document).ready(function(){
+ jQuery(document).ready(function(){
 	 
 	 $('#email').bind('change', function() {
 		    verifyEmailExists($('#email').val());

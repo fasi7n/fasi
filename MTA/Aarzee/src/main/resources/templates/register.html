@@ -6,19 +6,18 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
  
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen" />
- 
     <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
             th:src="@{/webjars/jquery/3.1.1-1/jquery.min.js}"></script>
+            
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
             
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/2.1.47/jquery.validate.min.js"
             th:src="@{/webjars/jquery-form-validator/2.1.47/jquery.form-validator.min.js}"></script>        
  
     <link href="../static/css/customstyle.css"
           th:href="@{css/customstyle.css}" rel="stylesheet" media="screen"/>
-          
           
    
    	<script type="text/javascript" src="../static/js/loginScripts.js"
@@ -165,7 +164,7 @@
        
         </form>
         
-        <form class="form-horizontal" id="goBackForm" role="form" th:action="@{/}" th:object="${loginCredentials}" method="POST">
+        <form class="form-horizontal" id="goBackForm" role="form" th:action="@{/}" th:object="${loginCredentials}">
         		<div class="form-group">
        			 
         		<input type="submit" class="form-control btn btn-primary btn-block" value="Go Back"/>

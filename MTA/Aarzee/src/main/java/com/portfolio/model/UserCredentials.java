@@ -25,6 +25,12 @@ public class UserCredentials {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@PrimaryKeyJoinColumn
 	private UserDetails userDetails;
+	
+	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@PrimaryKeyJoinColumn
+	private UserRoles userRoles;
+	
 
 	public String getEmail_ID() {
 		
@@ -54,8 +60,14 @@ public class UserCredentials {
 	public void setUserDetails(UserDetails userDetails) {
 		this.userDetails = userDetails;
 	}
-	
-	
+
+	public UserRoles getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(UserRoles userRoles) {
+		this.userRoles = userRoles;
+	}
 	
 	
 	
