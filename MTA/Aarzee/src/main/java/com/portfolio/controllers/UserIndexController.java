@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.portfolio.model.LoginCredentials;
+import com.portfolio.helperBeans.LoginCredentials;
+import com.portfolio.helperBeans.SenderFormBean;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.model.UserDetails;
 import com.portfolio.service.UserCredentialsService;
@@ -35,6 +36,9 @@ public class UserIndexController {
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
+	
+	@Autowired
+	private SenderFormBean senderFormBean;
 	
 	@RequestMapping("/indexAction")
 	public ModelAndView userDashboardAction(@ModelAttribute("loggedInUser") UserCredentials loggedInUser, @RequestParam("actVal") String actVal, Model model)
@@ -147,6 +151,7 @@ public class UserIndexController {
 	{
 		
 		model.addAttribute("transactionSelector", "newTxnSuccess");
+		model.addAttribute("senderFormBean", senderFormBean);
 		model.addAttribute("successfulNewTxn", "Have to display NEW transaction here");
 			
 	}

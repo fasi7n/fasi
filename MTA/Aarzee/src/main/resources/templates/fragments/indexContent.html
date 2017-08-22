@@ -61,7 +61,7 @@ Caution: Your Details DO NOT exist!
 </div>
 
 <div th:fragment="newTxnContent" >
-<div th:if="${successfulNewTxn}" th:text="${successfulNewTxn}"> </div>
+<div th:if="${successfulNewTxn}" th:replace="fragments/transactionsfrag :: newTxnFrag"> </div>
 </div>
 
 <div th:fragment="reportsContent" >

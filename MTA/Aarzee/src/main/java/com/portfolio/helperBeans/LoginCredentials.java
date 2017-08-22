@@ -1,4 +1,4 @@
-package com.portfolio.model;
+package com.portfolio.helperBeans;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

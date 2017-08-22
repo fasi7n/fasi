@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+
+	<div th:fragment="searchTxnFrag">
+		<div th:if="${successfulSearchTxn}" th:text="${successfulSearchTxn}">
+		</div>
+	</div>
+
+	<!-- FRAGMENT FOR NEW TRANSACTION -->
+	<div th:fragment="newTxnFrag">
+
+		<!-- SUCCFUL NEW TXN BLOCK -->
+		<div th:if="${successfulNewTxn}" class="container"
+			id="newTxnContainer">
+			<div th:text="${successfulNewTxn}"></div>
+			<!-- FRAGMENT FOR NEW TRANSACTION FORM -->
+			<div class="row">
+				<!-- SENDER COLUMN START -->
+				<div class="col-md-6" id="senderColumn">
+
+					<!-- SENDER PANEL START -->
+					<div class="panel panel-default">
+						
+						<div class="panel-heading">
+							<h5>Sender</h5>
+						</div>
+
+					
+							<form id="SenderFindForm" role="form"
+								th:action="@{/senderFindAction}" th:object="${senderFormBean}"
+								method="POST">
+
+								
+									<div class="row">
+										<div class="errorSpace">
+											<strong><p th:if="${findError}"	th:text="${findError}"></p> </strong>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderFirst">First Name</label>
+												<input class="form-control input-md" id="senderFirst" name="senderFirst" type="text"
+													th:field="*{senderFirst}" placeholder="First Name"/> 
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderLast">Last Name</label>
+												<input class="form-control input-md" id="senderLast" name="senderLast" type="text"
+													th:field="*{senderLast}" placeholder="Last Name"/> 
+											</div>
+										</div>
+
+										<div class="col-md-6">
+										<div class="form-group">
+											<input type="submit"
+												class="form-control btn btn-primary btn-block" value="FIND"></input>
+										</div>
+										</div>
+
+
+									</div>
+							
+							</form>
+							
+								
+                        
+					
+						Sender Info Here
+						
+						
+						
+						
+					
+						
+						
+						
+						
+						
+						
+						
+						
+						<!-- SENDER PANEL END -->
+					</div>
+					<!-- SENDER COLUMN END -->
+				</div>
+				
+						<!-- START OF RECEIVER DIV -->
+				<div class="col-md-6" id="receiverColumn">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h5>Receiver</h5>
+						</div>
+
+						<div><p>Receiver Info Here</p></div>
+
+					</div>
+					<!-- END OF RECEIVER DIV BELOW -->
+				</div>
+
+			<!-- ROW ENDS -->	
+			</div>
+
+			<!-- SUCCFUL NEW TXN BLOCK -->
+		</div>
+		<!-- END OF FRAGMENT FOR NEW TRANSACTION -->
+	</div>
+
+
+
+</body>
+
+
+</html>
+

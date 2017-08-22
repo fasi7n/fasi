@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.portfolio.LoadDummyContent;
-import com.portfolio.model.LoginCredentials;
+import com.portfolio.helperBeans.LoginCredentials;
 
 
 @Controller

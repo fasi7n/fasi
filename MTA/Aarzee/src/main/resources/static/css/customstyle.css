@@ -79,3 +79,8 @@ ul, li {
 #passwordRules {
    display:none;
 }
+
+.paddedCust{
+	
+	padding:25px;
+}

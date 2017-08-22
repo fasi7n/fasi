@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.portfolio.commons.SimpleSHADigest;
-import com.portfolio.model.LoginCredentials;
+import com.portfolio.helperBeans.LoginCredentials;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.model.UserDetails;
 import com.portfolio.model.UserRoles;
@@ -27,7 +27,15 @@ import com.portfolio.service.UserRolesService;
 @SessionAttributes("loggedInUser")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		
+		auth
+			.inMemoryAuthentication()
+				.withUser("fasi@fasi.com")
+			    .password("Fasi123!#")
+			    .roles("ADMIN");
+	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -55,15 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	       .antMatchers("/resources/**", "/templates/**", "/static/**", "/css/**", "/images/**", "/js/**", "/webjars/**");
 	}
 	
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		
-		auth
-			.inMemoryAuthentication()
-				.withUser("fasi@fasi.com")
-			    .password("Fasi123!#")
-			    .roles("ADMIN");
-	}
+	
 	
 	
 }

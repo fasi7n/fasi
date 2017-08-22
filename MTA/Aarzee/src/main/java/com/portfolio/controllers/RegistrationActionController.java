@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.portfolio.commons.SimpleSHADigest;
-import com.portfolio.model.LoginCredentials;
+import com.portfolio.helperBeans.LoginCredentials;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.model.UserDetails;
 import com.portfolio.repositories.UserCredentialsRepository;

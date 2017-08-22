@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.portfolio.commons.SimpleSHADigest;
-import com.portfolio.model.LoginCredentials;
+import com.portfolio.helperBeans.LoginCredentials;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.service.UserCredentialsService;
 
@@ -59,6 +59,7 @@ public class LoginActionController {
 		    String currentUserName = authentication.getName();
 		    System.out.println(currentUserName);
 		}
+		else System.out.println("Current logged in user is " + authentication.getName());
 		
 		
 		//STARTS HERE
