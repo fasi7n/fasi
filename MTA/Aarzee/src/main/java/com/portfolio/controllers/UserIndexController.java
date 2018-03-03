@@ -40,6 +40,9 @@ public class UserIndexController {
 	@Autowired
 	private SenderFormBean senderFormBean;
 	
+	@Autowired
+	private LoginCredentials searchFormBean;
+	
 	@RequestMapping("/indexAction")
 	public ModelAndView userDashboardAction(@ModelAttribute("loggedInUser") UserCredentials loggedInUser, @RequestParam("actVal") String actVal, Model model)
 	
@@ -47,18 +50,30 @@ public class UserIndexController {
 		
 		ModelAndView mav = new ModelAndView("index");
 		
+		
 		if(actVal.equalsIgnoreCase("dashboardAction"))
 		{
 			dashBoardProcessing(model, loggedInUser.getEmail_ID());
 		}
 		
-				
+			
+		
 		else if(actVal.equalsIgnoreCase("searchTxnAction"))
 		{
 			
 			//myProfileProcessing(model);
 			searchTxnProcessing(model);
 		}
+		
+		
+		else if(actVal.equalsIgnoreCase("searchResults"))
+		{
+			
+			//myProfileProcessing(model);
+			searchResultsProcessing(model);
+		}
+		
+		
 		
 		else if(actVal.equalsIgnoreCase("newTxnAction"))
 		{
@@ -140,11 +155,22 @@ public class UserIndexController {
 	{
 		
 		model.addAttribute("transactionSelector", "searchTxnSuccess");
+		model.addAttribute("searchFormBean", searchFormBean);
 		model.addAttribute("successfulSearchTxn", "Have to display SEARCH transactions here");
 	
 		
 	}
 
+	
+	public void searchResultsProcessing(Model model)
+	{
+		
+		model.addAttribute("transactionSelector", "searchResultSuccess");
+		//model.addAttribute("searchFormBean", searchFormBean);
+		model.addAttribute("successSearchResult", "Have to display SEARCH transactions here");
+	
+		
+	}
 	
 
 	public void newTxnProcessing(Model model)

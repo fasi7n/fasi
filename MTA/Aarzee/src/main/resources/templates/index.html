@@ -20,6 +20,15 @@
 
 		<div class="app-container container">
 		<div layout:fragment="content">
+		
+		
+				<div class="dashSearchSpace">
+					 <div th:switch="${myDashSearchSelector}">
+					 <div th:case="'dashSearchSuccess'"
+						  th:replace="fragments/indexContent :: dashSearchContent"></div>
+					</div>
+				</div>
+				
 
 				<div class="dashboardSpace">
 					<!--  <strong> <p th:if="${dashSuccess}" th:text="${dashSuccess}"></p> </strong>
@@ -37,6 +46,8 @@
 					<div th:switch="${transactionSelector}">
 						<div th:case='searchTxnSuccess'
 							th:replace="fragments/indexContent :: searchTxnContent"></div>
+						<div th:case='searchResultSuccess'
+							th:replace="fragments/indexContent :: searchResultContent"></div>
 						<div th:case='newTxnSuccess'
 							th:replace="fragments/indexContent :: newTxnContent"></div>
 						<!--  <div th:case="'editProfSuccess'"

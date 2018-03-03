@@ -2,15 +2,11 @@ package com.portfolio.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.portfolio.commons.SimpleSHADigest;
@@ -54,12 +50,14 @@ public class LoginActionController {
 		
 		
 		//ONE MORE 
+		
+		/*
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {
 		    String currentUserName = authentication.getName();
 		    System.out.println(currentUserName);
 		}
-		else System.out.println("Current logged in user is " + authentication.getName());
+		else System.out.println("FROM LOGIN ACTION CONTROLLER ----- Current logged in user is " + authentication.getName());
 		
 		
 		//STARTS HERE
@@ -71,7 +69,9 @@ public class LoginActionController {
 			System.out.println("++++----++++---- This is a test ID 2 FOR THE LOGGED in USER " + testCredentials);
 		}
 	//ENDS HERE	
-				
+			*/
+		
+		
 		if((userCredentials==null) || !(userCredentials.getPassword().equals(SimpleSHADigest.mySha1(loginCredentials.getPassword()))))
 		{
 			

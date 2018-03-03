@@ -36,17 +36,13 @@ public class SenderDetails {
 	@Column(name="SENDER_EMAIL")
 	private String senderEmail;
 	
-	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)
-	//@JoinColumn(name = "sender_id")
+	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)	
 	private Set<SenderAddress> senderAddress;
 	
-	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)
-	//@JoinColumn(name = "sender_id")
+	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)	
 	private Set<SenderID> senderID;
-	
-	
+		
 	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)
-	//@JoinColumn(name = "sender_id")
 	private Set<ReceiverDetails> receivers;	
 	
 	

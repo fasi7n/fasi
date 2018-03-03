@@ -1,5 +1,7 @@
 package com.portfolio.configuration;
 
+/*
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ import com.portfolio.helperBeans.LoginCredentials;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.model.UserDetails;
 import com.portfolio.model.UserRoles;
+import com.portfolio.service.UserCredentialsService;
 import com.portfolio.service.UserRolesService;
  
 @Configuration
@@ -27,15 +30,13 @@ import com.portfolio.service.UserRolesService;
 @SessionAttributes("loggedInUser")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  
+	
 	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		
-		auth
-			.inMemoryAuthentication()
-				.withUser("fasi@fasi.com")
-			    .password("Fasi123!#")
-			    .roles("ADMIN");
-	}
+	private UserCredentialsService userCredServObj;
+	
+	
+	
+
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -47,7 +48,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/login").permitAll()
 				.antMatchers("/newUserRegistration").permitAll()
 				.antMatchers("/registrationAction").permitAll()
-				.antMatchers("/indexAction/**").permitAll();
+				.antMatchers("/verifyEmailTaken").permitAll()
+			//	.antMatchers("/indexAction/**").permitAll();
+				.anyRequest().authenticated();
 				
 				//LETS add later
 				//.antMatchers("/indexAction/**").hasRole("ADMIN").anyRequest()
@@ -67,3 +70,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	
 }
+
+*/

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class UserRoles {
 	
 	@Id
-	@Column(name="EMAIL")
+	@Column(name="EMAIL_ID")
 	private String email_ID;
 	
 	@Column(name="ROLENAME")
