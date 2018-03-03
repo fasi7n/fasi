@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.portfolio.helperBeans.LoginCredentials;
+import com.portfolio.model.SenderDetails;
 import com.portfolio.model.UserDetails;
+import com.portfolio.service.SenderDetailsService;
 import com.portfolio.service.UserDetailsService;
 
 
@@ -18,22 +20,23 @@ import com.portfolio.service.UserDetailsService;
 @SessionAttributes("loggedInUser")
 public class SearchController {
 	
-	@Autowired
-	private UserDetailsService userDetailsService;
-	
-	@Autowired UserDetails userSearchDetails;
+@Autowired
+private SenderDetailsService senderDetailsService;
+
+@Autowired
+private SenderDetails returnSenderDetails;
 	
 @GetMapping
-public String searchAction(@ModelAttribute LoginCredentials searchFormBean, Model model)
+public String searchAction(@ModelAttribute SenderDetails searchFormBean, Model model)
 	{
 	
 	if(searchFormBean!=null)
 	{
-		userSearchDetails = userDetailsService.getUserDetailsByEmail(searchFormBean.getEmail_ID());
+		returnSenderDetails = senderDetailsService.findSenderByEmail(searchFormBean.getSenderEmail());
 		
-		System.out.println(searchFormBean.getEmail_ID());
-		model.addAttribute("searchSuccessReturn", "SEARCH IS SUCCESSFUL - Please search with correct details");
-		model.addAttribute("userSearchDetails", userSearchDetails);
+		System.out.println(searchFormBean.getSenderEmail());
+		model.addAttribute("searchSuccess", "SEARCH IS SUCCESSFUL");
+		model.addAttribute("returnSenderSearchDetails", returnSenderDetails);
 		//return "index";
 		return "forward://indexAction(actVal='searchResults')";
 	}
@@ -44,7 +47,7 @@ public String searchAction(@ModelAttribute LoginCredentials searchFormBean, Mode
 	model.addAttribute("searchError", "ERROR - Please search with correct details");
 	//forward to indexAction under UderIndexController
 	//Then add the actVal attribute with search  - /indexAction(actVal='searchTxnAction')
-	return "index";
+	return "forward://indexAction(actVal='searchTxnAction')";
 	}
 	
 	

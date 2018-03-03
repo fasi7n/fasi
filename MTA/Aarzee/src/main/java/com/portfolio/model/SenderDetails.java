@@ -1,5 +1,6 @@
 package com.portfolio.model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
 public class SenderDetails {
 	
@@ -28,22 +32,22 @@ public class SenderDetails {
 	private String lastName;
 		
 	@Column(name="PRIMARY_PHONE")
-	private String PrimaryPhone;
+	private String primaryPhone;
 	
 	@Column(name="SECONDARY_PHONE")
-	private String SecondaryPhone;
+	private String secondaryPhone;
 	
 	@Column(name="SENDER_EMAIL")
 	private String senderEmail;
 	
 	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)	
-	private Set<SenderAddress> senderAddress;
+	private List<SenderAddress> senderAddress;
 	
 	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)	
-	private Set<SenderID> senderID;
+	private List<SenderPhotoID> senderPhotoID;
 		
 	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)
-	private Set<ReceiverDetails> receivers;	
+	private List<ReceiverDetails> receivers;	
 	
 	
 	
@@ -74,19 +78,19 @@ public class SenderDetails {
 	}
 
 	public String getPrimaryPhone() {
-		return PrimaryPhone;
+		return primaryPhone;
 	}
 
 	public void setPrimaryPhone(String primaryPhone) {
-		PrimaryPhone = primaryPhone;
+		this.primaryPhone = primaryPhone;
 	}
 
 	public String getSecondaryPhone() {
-		return SecondaryPhone;
+		return secondaryPhone;
 	}
 
 	public void setSecondaryPhone(String secondaryPhone) {
-		SecondaryPhone = secondaryPhone;
+		this.secondaryPhone = secondaryPhone;
 	}
 
 	public String getSenderEmail() {
@@ -97,27 +101,27 @@ public class SenderDetails {
 		this.senderEmail = senderEmail;
 	}
 
-	public Set<SenderAddress> getSenderAddress() {
+	public List<SenderAddress> getSenderAddress() {
 		return senderAddress;
 	}
 
-	public void setSenderAddress(Set<SenderAddress> senderAddress) {
+	public void setSenderAddress(List<SenderAddress> senderAddress) {
 		this.senderAddress = senderAddress;
 	}
 
-	public Set<SenderID> getSenderID() {
-		return senderID;
+	public List<SenderPhotoID> getSenderPhotoID() {
+		return senderPhotoID;
 	}
 
-	public void setSenderID(Set<SenderID> senderID) {
-		this.senderID = senderID;
+	public void setSenderPhotoID(List<SenderPhotoID> senderPhotoID) {
+		this.senderPhotoID = senderPhotoID;
 	}
 
-	public Set<ReceiverDetails> getReceivers() {
+	public List<ReceiverDetails> getReceivers() {
 		return receivers;
 	}
 
-	public void setReceivers(Set<ReceiverDetails> receivers) {
+	public void setReceivers(List<ReceiverDetails> receivers) {
 		this.receivers = receivers;
 	}
 	

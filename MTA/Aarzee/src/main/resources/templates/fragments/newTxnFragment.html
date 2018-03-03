@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ 
+    <link href="../static/css/customstyle.css"
+          th:href="@{css/customstyle.css}" rel="stylesheet" media="screen"/>
+          
+          
+          
+</head>
+
+<body>
+
+	<!--	<div th:fragment="searchTxnFrag">
+		<div th:if="${successfulSearchTxn}" th:text="${successfulSearchTxn}">
+		</div>
+	</div>
+
+	<!-- FRAGMENT FOR NEW TRANSACTION -->
+	<div th:fragment="newTxnFrag">
+
+		<!-- SUCCFUL NEW TXN BLOCK -->
+		<div th:if="${successfulNewTxn}" class="container" id="newTxnContainer">
+		
+		<div th:text="${successfulNewTxn}"></div>
+			<!-- FRAGMENT FOR NEW TRANSACTION FORM -->
+		
+		<div class="row">
+		
+		
+				<!-- SENDER COLUMN START -->
+				<div class="col-md-6" id="senderColumn">
+
+					<!-- SENDER PANEL START -->
+					<div class="panel panel-default">
+						
+						<div class="panel-heading">
+							<strong>Sender</strong>
+						</div>
+
+					
+					<form id="senderFindForm" role="form" th:action="@{/senderFindAction}" th:object="${senderDetailsFBean}" method="POST">
+
+					<div class="row">
+										<div class="errorSpace">
+											<strong><p th:if="${findError}"	th:text="${findError}"></p> </strong>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderFirst">First Name</label>
+												<input class="form-control input-md" id="firstName" name="firstName" type="text" th:field="*{firstName}"></input>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderLast">Last Name</label>
+												<input class="form-control input-md" id="lastName" name="lastName" type="text" th:field="*{lastName}"></input>
+											</div>
+										</div>
+										
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderFirst">Primary Phone</label>
+												<input class="form-control input-md" id="primaryPhone" name="primaryPhone" type="text" th:field="*{primaryPhone}"></input> 
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderLast">Secondary Phone</label>
+												<input class="form-control input-md" id="secondaryPhone" name="secondaryPhone" type="text" th:field="*{secondaryPhone}"></input> 
+											</div>
+										</div>
+										
+										<div class="col-md-12">
+										<label class="control-label" for="email">Sender Email</label>
+										<input class="form-control input-md" id="senderEmail" name="senderEmail" type="email" th:field="*{senderEmail}"></input> 
+										</div>
+										
+										
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="control-label" for="senderHomeStreet">Street</label>
+												<input class="form-control input-md" id="senderHomeStreet" name="senderHomeStreet" type="text" th:field="*{senderAddress[0].senderHomeStreet}"></input> 
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderCity">City</label>
+												<input class="form-control input-md" id="senderCity" name="senderCity" type="text" th:field="*{senderAddress[0].senderCity}"></input> 
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderState">State</label>
+												<input class="form-control input-md" id="senderState" name="senderState" type="text" th:field="*{senderAddress[0].senderState}"></input> 
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderZip">Country</label>
+												<input class="form-control input-md" id="senderCountry" name="senderCountry" type="text" th:field="*{senderAddress[0].senderCountry}"></input> 
+											</div>
+										</div>
+										
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderZip">Zip</label>
+												<input class="form-control input-md" id="senderZip" name="senderZip" type="text" th:field="*{senderAddress[0].senderZip}"></input> 
+											</div>
+										</div>
+										
+										
+										
+										
+										<div class="col-md-12">
+										<div class="form-group">
+											<input type="submit"
+												class="form-control btn btn-primary btn-block" value="FIND"></input>
+										</div>
+										</div>
+
+
+					</div>
+							
+				</form>
+				<!-- SENDER PANEL END -->
+				</div>
+				<!-- SENDER COLUMN END -->
+				</div>
+				
+				
+<!-- START OF RECEIVER DIV -->
+
+
+				<!-- RECEUVER COLUMN START -->
+				<div class="col-md-6" id="receiverColumn">
+
+					<!-- RECEIVER PANEL START -->
+					<div class="panel panel-default">
+						
+						<div class="panel-heading">
+							<strong>Receiver</strong>
+						</div>
+
+					
+					<form id="receiverFindForm" role="form" th:action="@{/receiverFindAction}" th:object="${receiverDetailsFormBean}" method="POST">
+
+					<div class="row">
+										<div class="errorSpace">
+											<strong><p th:if="${findError}"	th:text="${findError}"></p> </strong>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderFirst">First Name</label>
+												<input class="form-control input-md" id="firstName" name="firstName" type="text" th:field="*{firstName}"></input>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderLast">Last Name</label>
+												<input class="form-control input-md" id="lastName" name="lastName" type="text" th:field="*{lastName}"></input>
+											</div>
+										</div>
+										
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderFirst">Primary Phone</label>
+												<input class="form-control input-md" id="primaryPhone" name="primaryPhone" type="text" th:field="*{primaryPhone}"></input> 
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="senderLast">Secondary Phone</label>
+												<input class="form-control input-md" id="secondaryPhone" name="secondaryPhone" type="text" th:field="*{secondaryPhone}"></input> 
+											</div>
+										</div>
+										
+										<div class="col-md-12">
+										<label class="control-label" for="email">Receiver Email</label>
+										<input class="form-control input-md" id="receiverEmail" name="receiverEmail" type="email" th:field="*{receiverEmail}"></input> 
+										</div>
+										
+										
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="control-label" for="receiverHomeStreet">Street</label>
+												<input class="form-control input-md" id="receiverHomeStreet" name="receiverHomeStreet" type="text" th:field="*{receiverAddress[0].receiverHomeStreet}"></input> 
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="receiverCity">City</label>
+												<input class="form-control input-md" id="receiverCity" name="receiverCity" type="text" th:field="*{receiverAddress[0].receiverCity}"></input> 
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="receiverState">State</label>
+												<input class="form-control input-md" id="receiverState" name="receiverState" type="text" th:field="*{receiverAddress[0].receiverState}"></input> 
+											</div>
+										</div>
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="receiverCountry">Country</label>
+												<input class="form-control input-md" id="receiverCountry" name="receiverCountry" type="text" th:field="*{receiverAddress[0].receiverCountry}"></input> 
+											</div>
+										</div>
+										
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label" for="receiverZip">Zip</label>
+												<input class="form-control input-md" id="receiverZip" name="receiverZip" type="text" th:field="*{receiverAddress[0].receiverZip}"></input> 
+											</div>
+										</div>
+										
+										
+										
+										
+										<div class="col-md-12">
+										<div class="form-group">
+											<input type="submit"
+												class="form-control btn btn-primary btn-block" value="FIND"></input>
+										</div>
+										</div>
+
+
+					</div>
+							
+				</form>
+				<!-- SENDER PANEL END -->
+				</div>
+				<!-- SENDER COLUMN END -->
+				</div>
+				
+				
+
+<!-- END OF RECEIVER DIV  -->
+
+
+
+
+
+
+
+			<!-- ROW ENDS -->	
+			</div>
+
+			<!-- SUCCFUL NEW TXN BLOCK -->
+		</div>
+		<!-- END OF FRAGMENT FOR NEW TRANSACTION -->
+	</div>
+
+
+
+</body>
+
+
+</html>
+

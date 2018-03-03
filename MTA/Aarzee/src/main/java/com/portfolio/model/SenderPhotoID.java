@@ -1,5 +1,6 @@
 package com.portfolio.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,44 +13,33 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
-public class SenderID {
+public class SenderPhotoID {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="SENDER_ID_NO")
-	private int sender_id_no;
+	@Column(name="ID_NO")
+	private String idNo;
 	
 	@Column(name="ID_TYPE")
 	//@NotEmpty(message = "*Please Enter the Sender Name")
 	private String idType;
 	
-	@Column(name="ID_NO")
-	private String idNo;
-	
 	@Column(name="DOB")
-	@Temporal(TemporalType.DATE)
-	private Date dob;			
+	private LocalDate dob;			
 	
 	@Column(name="ISSUED")
-	@Temporal(TemporalType.DATE)
-	private Date issueDate;
+	private LocalDate issueDate;
 	
 	@Column(name="EXPIRES")
-	@Temporal(TemporalType.DATE)
-	private Date expiryDate;
+	private LocalDate expiryDate;
 	
 	@ManyToOne
 	@JoinColumn(name = "sender_id")
 	private SenderDetails senderDetails;
 
-	public int getSender_id_no() {
-		return sender_id_no;
-	}
-
-	public void setSender_id_no(int sender_id_no) {
-		this.sender_id_no = sender_id_no;
-	}
 
 	public String getIdType() {
 		return idType;
@@ -67,27 +57,27 @@ public class SenderID {
 		this.idNo = idNo;
 	}
 
-	public Date getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
 
-	public Date getIssueDate() {
+	public LocalDate getIssueDate() {
 		return issueDate;
 	}
 
-	public void setIssueDate(Date issueDate) {
+	public void setIssueDate(LocalDate issueDate) {
 		this.issueDate = issueDate;
 	}
 
-	public Date getExpiryDate() {
+	public LocalDate getExpiryDate() {
 		return expiryDate;
 	}
 
-	public void setExpiryDate(Date expiryDate) {
+	public void setExpiryDate(LocalDate expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 

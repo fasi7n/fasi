@@ -1,5 +1,6 @@
 package com.portfolio.model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
 public class ReceiverDetails {
 	
@@ -28,10 +32,10 @@ public class ReceiverDetails {
 	private String lastName;
 		
 	@Column(name="PRIMARY_PHONE")
-	private String PrimaryPhone;
+	private String primaryPhone;
 	
 	@Column(name="SECONDARY_PHONE")
-	private String SecondaryPhone;
+	private String secondaryPhone;
 	
 	@Column(name="RECEIVER_EMAIL")
 	private String receiverEmail;
@@ -42,7 +46,7 @@ public class ReceiverDetails {
 	
 	@OneToMany(mappedBy = "receiverDetails", cascade = CascadeType.ALL)
 	//@JoinColumn(name = "receiver_id")
-	private Set<ReceiverAddress> receiverAddress;
+	private List<ReceiverAddress> receiverAddress;
 	
 	
 	
@@ -72,19 +76,19 @@ public class ReceiverDetails {
 	}
 
 	public String getPrimaryPhone() {
-		return PrimaryPhone;
+		return primaryPhone;
 	}
 
 	public void setPrimaryPhone(String primaryPhone) {
-		PrimaryPhone = primaryPhone;
+		this.primaryPhone = primaryPhone;
 	}
 
 	public String getSecondaryPhone() {
-		return SecondaryPhone;
+		return secondaryPhone;
 	}
 
 	public void setSecondaryPhone(String secondaryPhone) {
-		SecondaryPhone = secondaryPhone;
+		this.secondaryPhone = secondaryPhone;
 	}
 
 	public String getReceiverEmail() {
@@ -103,11 +107,11 @@ public class ReceiverDetails {
 		this.senderDetails = senderDetails;
 	}
 
-	public Set<ReceiverAddress> getReceiverAddress() {
+	public List<ReceiverAddress> getReceiverAddress() {
 		return receiverAddress;
 	}
 
-	public void setReceiverAddress(Set<ReceiverAddress> receiverAddress) {
+	public void setReceiverAddress(List<ReceiverAddress> receiverAddress) {
 		this.receiverAddress = receiverAddress;
 	}
 	

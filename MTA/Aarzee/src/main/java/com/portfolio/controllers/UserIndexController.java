@@ -2,6 +2,7 @@ package com.portfolio.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.SystemPropertyUtils;
@@ -15,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.portfolio.helperBeans.LoginCredentials;
 import com.portfolio.helperBeans.SenderFormBean;
+import com.portfolio.model.ReceiverDetails;
+import com.portfolio.model.SenderDetails;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.model.UserDetails;
 import com.portfolio.service.UserCredentialsService;
@@ -38,10 +41,12 @@ public class UserIndexController {
 	private UserDetailsService userDetailsService;
 	
 	@Autowired
-	private SenderFormBean senderFormBean;
+	private SenderDetails senderDetailsFormBean;
 	
 	@Autowired
-	private LoginCredentials searchFormBean;
+	private ReceiverDetails receiverDetailsFormBean;
+	
+
 	
 	@RequestMapping("/indexAction")
 	public ModelAndView userDashboardAction(@ModelAttribute("loggedInUser") UserCredentials loggedInUser, @RequestParam("actVal") String actVal, Model model)
@@ -155,7 +160,7 @@ public class UserIndexController {
 	{
 		
 		model.addAttribute("transactionSelector", "searchTxnSuccess");
-		model.addAttribute("searchFormBean", searchFormBean);
+		model.addAttribute("searchFormBean", senderDetailsFormBean);
 		model.addAttribute("successfulSearchTxn", "Have to display SEARCH transactions here");
 	
 		
@@ -177,7 +182,8 @@ public class UserIndexController {
 	{
 		
 		model.addAttribute("transactionSelector", "newTxnSuccess");
-		model.addAttribute("senderFormBean", senderFormBean);
+		model.addAttribute("senderDetailsFBean", senderDetailsFormBean);
+		model.addAttribute("receiverDetailsFormBean", receiverDetailsFormBean);
 		model.addAttribute("successfulNewTxn", "Have to display NEW transaction here");
 			
 	}

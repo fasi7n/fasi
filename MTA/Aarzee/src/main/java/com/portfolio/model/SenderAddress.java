@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
 public class SenderAddress {
 	
@@ -20,19 +23,19 @@ public class SenderAddress {
 	
 	@Column(name="HOME_STREET")
 	//@NotEmpty(message = "*Please Enter the Sender Name")
-	private String homeStreet;
+	private String senderHomeStreet;
 	
 	@Column(name="CITY")
-	private String city;
+	private String senderCity;
 	
 	@Column(name="STATE")
-	private String state;	
+	private String senderState;	
 		
 	@Column(name="ZIP")
-	private int zip;
+	private int senderZip;
 	
 	@Column(name="COUNTRY")
-	private String country;
+	private String senderCountry;
 	
 	@ManyToOne
 	@JoinColumn(name = "sender_id")
@@ -46,44 +49,46 @@ public class SenderAddress {
 		this.address_id = address_id;
 	}
 
-	public String getHomeStreet() {
-		return homeStreet;
+	
+
+	public String getSenderHomeStreet() {
+		return senderHomeStreet;
 	}
 
-	public void setHomeStreet(String homeStreet) {
-		this.homeStreet = homeStreet;
+	public void setSenderHomeStreet(String senderHomeStreet) {
+		this.senderHomeStreet = senderHomeStreet;
 	}
 
-	public String getCity() {
-		return city;
+	public String getSenderCity() {
+		return senderCity;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setSenderCity(String senderCity) {
+		this.senderCity = senderCity;
 	}
 
-	public String getState() {
-		return state;
+	public String getSenderState() {
+		return senderState;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setSenderState(String senderState) {
+		this.senderState = senderState;
 	}
 
-	public int getZip() {
-		return zip;
+	public int getSenderZip() {
+		return senderZip;
 	}
 
-	public void setZip(int zip) {
-		this.zip = zip;
+	public void setSenderZip(int senderZip) {
+		this.senderZip = senderZip;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getSenderCountry() {
+		return senderCountry;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setSenderCountry(String senderCountry) {
+		this.senderCountry = senderCountry;
 	}
 
 	public SenderDetails getSenderDetails() {

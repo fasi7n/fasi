@@ -8,7 +8,6 @@ import com.portfolio.model.UserDetails;
 public interface UserDetailsService {
 	
 	public UserDetails getUserDetailsByEmail(String userEmail);
-
 	public String createUserDetailsByEmail(UserDetails userDetails);
 
 }

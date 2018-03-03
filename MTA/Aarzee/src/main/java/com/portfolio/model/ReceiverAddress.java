@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
 public class ReceiverAddress {
 	
@@ -18,19 +21,19 @@ public class ReceiverAddress {
 	
 	@Column(name="HOME_STREET")
 	//@NotEmpty(message = "*Please Enter the Sender Name")
-	private String homeStreet;
+	private String receiverHomeStreet;
 	
 	@Column(name="CITY")
-	private String city;
+	private String receiverCity;
 	
 	@Column(name="STATE")
-	private String state;	
+	private String receiverState;	
 		
 	@Column(name="ZIP")
-	private int zip;
+	private int receiverZip;
 	
 	@Column(name="COUNTRY")
-	private String country;
+	private String receiverCountry;
 	
 	@ManyToOne
 	@JoinColumn(name = "receiver_id")
@@ -44,44 +47,44 @@ public class ReceiverAddress {
 		this.address_id = address_id;
 	}
 
-	public String getHomeStreet() {
-		return homeStreet;
+	public String getReceiverHomeStreet() {
+		return receiverHomeStreet;
 	}
 
-	public void setHomeStreet(String homeStreet) {
-		this.homeStreet = homeStreet;
+	public void setReceiverHomeStreet(String receiverHomeStreet) {
+		this.receiverHomeStreet = receiverHomeStreet;
 	}
 
-	public String getCity() {
-		return city;
+	public String getReceiverCity() {
+		return receiverCity;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setReceiverCity(String receiverCity) {
+		this.receiverCity = receiverCity;
 	}
 
-	public String getState() {
-		return state;
+	public String getReceiverState() {
+		return receiverState;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setReceiverState(String receiverState) {
+		this.receiverState = receiverState;
 	}
 
-	public int getZip() {
-		return zip;
+	public int getReceiverZip() {
+		return receiverZip;
 	}
 
-	public void setZip(int zip) {
-		this.zip = zip;
+	public void setReceiverZip(int receiverZip) {
+		this.receiverZip = receiverZip;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getReceiverCountry() {
+		return receiverCountry;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setReceiverCountry(String receiverCountry) {
+		this.receiverCountry = receiverCountry;
 	}
 
 	public ReceiverDetails getReceiverDetails() {
@@ -91,6 +94,7 @@ public class ReceiverAddress {
 	public void setReceiverDetails(ReceiverDetails receiverDetails) {
 		this.receiverDetails = receiverDetails;
 	}
+
 	
 	
 	

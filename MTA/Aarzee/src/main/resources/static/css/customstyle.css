@@ -84,3 +84,16 @@ ul, li {
 	
 	padding:25px;
 }
+
+
+#searchForm {
+    border-radius:1px;
+    background:#EBEBEB;
+    padding:50px;
+    
+}
+
+#senderFindForm{	
+	padding:auto;
+}
+

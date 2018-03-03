@@ -1,33 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head></head>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+ 
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.1.1-1/jquery.min.js}"></script>
+    
+    <link href="../static/css/navBarStyle.css"
+          th:href="@{css/customStyle.css}" rel="stylesheet"/>
+          
+     <link href="../static/css/customstyle.css"
+          th:href="@{css/customstyle.css}" rel="stylesheet" media="screen"/>
+          
+</head>
 <body>
 
-<div th:fragment="dashSearchContent" >
-<div th:if="${successfulDashSearch}" th:text="${successfulDashSearch}"> </div>
-</div>
+	<div th:fragment="dashSearchContent">
+		<div th:if="${successfulDashSearch}" th:text="${successfulDashSearch}">
+		</div>
+	</div>
 
-<div th:fragment="dashContent" >
-<div th:if="${userDetails}"> 
+	<div th:fragment="dashContent">
+		<div th:if="${userDetails}">
 
-<!-- SOMETHING USEFUL
+			<!-- SOMETHING USEFUL
 
 <span th:text="${someObject.someProperty != null} ? ${someObject.someProperty} : 'null value!'">someValue</span>
 <span th:text="${someObject.someProperty != null} ? ${someObject.someProperty}">someValue</span>
  -->
 
-<p> Your User Details Are As Follows</p>
+			<p>Your User Details Are As Follows</p>
 
-User Name:  <p th:text="${loggedInUser.email_ID}"></p>
-Password :  <p th:text="${loggedInUser.password}"></p>
+			User Name:
+			<p th:text="${loggedInUser.email_ID}"></p>
+			Password :
+			<p th:text="${loggedInUser.password}"></p>
 
-First Name: <p th:text="${userDetails.firstname}"> </p>
-Last Name : <p th:text="${userDetails.lastname}"> </p>
-Phone No  : <p th:text="${userDetails.phone}"> </p>
+			First Name:
+			<p th:text="${userDetails.firstname}"></p>
+			Last Name :
+			<p th:text="${userDetails.lastname}"></p>
+			Phone No :
+			<p th:text="${userDetails.phone}"></p>
 
-</div>
+		</div>
 
-<!-- 
+		<!-- 
 
 
 
@@ -56,143 +79,73 @@ Caution: Your Details DO NOT exist!
      
      
       -->
-     
-
-</div>
 
 
-<div th:fragment="searchTxnContent" >
-<!-- <div th:if="${successfulSearchTxn}" th:text="${successfulSearchTxn}"> -->
-<div th:if="${successfulSearchTxn}"> 
+	</div>
+
+
+	<div th:fragment="searchTxnContent">
+		<!-- <div th:if="${successfulSearchTxn}" th:text="${successfulSearchTxn}"> -->
+		<div th:if="${successfulSearchTxn}" th:replace="fragments/newSearchFragment :: newSearchFrag"></div>
 	
-	<div class ="container">
-	<div class="row">
-	<div class="boxedContent col-md-6 col-md-4 col-md-offset-4" id="searchPanel">
-	<div class="panel panel-default">
-    
-		<div class="panel-heading">
-      	<strong>Please search using one of the following criteria:</strong> 
-      	</div>
-      	
-      	 <div class="loginFormArea form-horizontal">
-		
-		<form class="form-horizontal" id="searchForm" role="form" th:action="@{/search}" th:object="${searchFormBean}" method="GET">
-        <fieldset>
-        
-        <div class="row">        
-        <div class="col-sm-12 col-md-10  col-md-offset-1">
-        
-        <div class="errorSpace"><strong> <p th:if="${searchError}" th:text="${searchError}"></p> </strong></div> 
-         
-        <div class="searchSuccessSpace"><strong> <p th:if="${searchSuccess}" th:text="${searchSuccess}"></p> </strong></div> 
-        
-             	<div class="form-group">            	
-            	<div class="input-group">
-    			<strong>E-Mail: <label for="email" class="col-lg-2 control-label">  </label></strong>
-    			
-    			<input type="email" class="form-control" id="email" name="search_email_id" th:field="*{email_ID}"> </input>
-    			</div>
-    			</div>
-    		
-                      
-            
-             	<div class="form-group">
-            	<div class="input-group">
-   			 	<strong>Phone: <label for="phone" class="col-lg-2 control-label"></label></strong>    			 		
-      			
-   				<input type="text" class="form-control" id="phone" name="search_phone" th:field="*{phone}"> </input>
-    			</div>
- 			 	</div>
- 			 
- 			 	<div class="form-group">
-            	<div class="input-group">
-    			<strong>First Name: <label for="firstName" class="col-lg-2 control-label">  </label></strong>
-    			
-    			<input type="text" class="form-control" id="firstName" name="search_firstName" th:field="*{fName}"> </input>
-    			</div>
-    			</div>
-    			
-    			
-    			
-    			<div class="form-group">
-            	<div class="input-group">
-    			<strong>Last Name: <label for="lastName" class="col-lg-2 control-label">  </label></strong>
-    			
-    			<input type="text" class="form-control" id="lastName" name="search_lastName" th:field="*{lName}"> </input>
-    			</div>
-    			</div>
- 			
-       
-       			<div class="form-group">        			       	
-        		<input type="submit" class="form-control btn btn-primary btn-block" value="SEARCH"/>       		        		
-    			</div>
-        	
-        	 	<div class="form-group"> 
-        	 	<input type="reset" class="form-control btn btn-warning btn-block" value="CLEAR"/>
-        		</div>
-        
-        </div> <!--  END OF COL DIV -->
-        </div>	<!-- ENd of ROW DIV -->
-        	
-       </fieldset>
-       </form>
-	
-	</div><!-- FORM HORIZONTAL AREA or LOGINFORM STYLE ENDS -->
-	
-	</div><!-- PANEL DEFAULT ENDS -->
-	
-	
-	 </div><!-- searchPanel DIV ENDS -->
-	</div><!-- ROW DIV -->
-	</div><!-- CONTAINER DIV -->
-	
-</div><!-- IF ENDS -->
-</div><!-- searchTxnContent fragment ends -->
+	</div>
+	<!-- searchTxnContent fragment ends -->
 
 
-<div th:fragment="searchResultContent">
-<div th:if="${successSearchResult}">
-<div th:if="${userSearchDetails}">
-User Name:  <p th:text="${userSearchDetails.email_ID}"></p>
-Password :  <p th:text="${userSearchDetails.password}"></p>
+	<div th:fragment="searchResultContent">
+		<div th:if="${successSearchResult}">
+			<div th:if="${userSearchDetails}">
+				User Name:
+				<p th:text="${userSearchDetails.email_ID}"></p>
+				Password :
+				<p th:text="${userSearchDetails.password}"></p>
 
-First Name: <p th:text="${userSearchDetails.firstname}"> </p>
-Last Name : <p th:text="${userSearchDetails.lastname}"> </p>
-Phone No  : <p th:text="${userSearchDetails.phone}"> </p>
+				First Name:
+				<p th:text="${userSearchDetails.firstname}"></p>
+				Last Name :
+				<p th:text="${userSearchDetails.lastname}"></p>
+				Phone No :
+				<p th:text="${userSearchDetails.phone}"></p>
 
-</div>
+			</div>
 
-</div>
-</div>
+		</div>
+	</div>
 
 
-<div th:fragment="newTxnContent" >
-<div th:if="${successfulNewTxn}" th:replace="fragments/transactionsfrag :: newTxnFrag"> </div>
-</div>
+	<div th:fragment="newTxnContent">
+		<div th:if="${successfulNewTxn}" th:replace="fragments/newTxnFragment :: newTxnFrag"></div>
+	</div>
 
-<div th:fragment="reportsContent" >
-<div th:if="${successfulReports}" th:text="${successfulReports}"> </div>
-</div>
 
-<div th:fragment="complianceSetContent" >
-<div th:if="${successfulSetCompliance}" th:text="${successfulSetCompliance}"> </div>
-</div>
+	<div th:fragment="reportsContent">
+		<div th:if="${successfulReports}" th:text="${successfulReports}">
+		</div>
+	</div>
 
-<div th:fragment="exchangeRateContent" >
-<div th:if="${successfulRates}" th:text="${successfulRates}"> </div>
-</div>
+	<div th:fragment="complianceSetContent">
+		<div th:if="${successfulSetCompliance}"
+			th:text="${successfulSetCompliance}"></div>
+	</div>
 
-<div th:fragment="userControlContent" >
-<div th:if="${successfulUserCtrl}" th:text="${successfulUserCtrl}"> </div>
-</div>
+	<div th:fragment="exchangeRateContent">
+		<div th:if="${successfulRates}" th:text="${successfulRates}"></div>
+	</div>
 
-<div th:fragment="currentUserContent" >
-<div th:if="${successfulcurUserCtrl}" th:text="${successfulcurUserCtrl}"> </div>
-</div>
+	<div th:fragment="userControlContent">
+		<div th:if="${successfulUserCtrl}" th:text="${successfulUserCtrl}">
+		</div>
+	</div>
 
-<div th:fragment="logoutContent" >
-<div th:if="${successfulLogout}" th:text="${successfulLogout}"> </div>
-</div>
+	<div th:fragment="currentUserContent">
+		<div th:if="${successfulcurUserCtrl}"
+			th:text="${successfulcurUserCtrl}"></div>
+	</div>
+
+	<div th:fragment="logoutContent">
+		<div th:if="${successfulLogout}" th:text="${successfulLogout}">
+		</div>
+	</div>
 
 </body>
 

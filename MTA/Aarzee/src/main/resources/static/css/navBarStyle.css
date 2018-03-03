@@ -122,4 +122,16 @@ html, body {
   }
   
   
+  
+ /* SECTION FOR FORMS */
+  
+  #senderFindForm #receiverArea{	
+	padding:auto;
+}
+  
+  
+  
+  
+  
+  
 } 

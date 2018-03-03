@@ -8,5 +8,7 @@ import com.portfolio.model.UserDetails;
 
 @Repository
 public interface UserDetailsRepository extends CrudRepository<UserDetails, String> {
+	
+	
 
 }
