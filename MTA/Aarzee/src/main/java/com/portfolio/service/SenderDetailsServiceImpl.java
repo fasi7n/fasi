@@ -33,13 +33,13 @@ public class SenderDetailsServiceImpl implements SenderDetailsService {
 	@Override
 	public List<SenderDetails> findAllSenderByFirst(String senderFirst) {
 
-		return senderDetailsDAO.findSenderByFirst(senderFirst);
+		return senderDetailsDAO.findAllSenderByFirst(senderFirst);
 	}
 
 	@Override
 	public List<SenderDetails> findAllSenderByLast(String senderLast) {
 		
-		return senderDetailsDAO.findSenderByLast(senderLast);
+		return senderDetailsDAO.findAllSenderByLast(senderLast);
 	}
 
 	@Override
