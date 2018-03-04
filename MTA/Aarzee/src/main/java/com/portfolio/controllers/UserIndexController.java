@@ -1,26 +1,21 @@
 package com.portfolio.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.SystemPropertyUtils;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.portfolio.helperBeans.LoginCredentials;
-import com.portfolio.helperBeans.SenderFormBean;
 import com.portfolio.model.ReceiverDetails;
 import com.portfolio.model.SenderDetails;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.model.UserDetails;
-import com.portfolio.service.UserCredentialsService;
 import com.portfolio.service.UserDetailsService;
 
 
@@ -45,6 +40,10 @@ public class UserIndexController {
 	
 	@Autowired
 	private ReceiverDetails receiverDetailsFormBean;
+	
+	@Qualifier("newSenderDetailsBean")
+	@Autowired
+	private SenderDetails senderSearchFormBean;
 	
 
 	
@@ -160,7 +159,7 @@ public class UserIndexController {
 	{
 		
 		model.addAttribute("transactionSelector", "searchTxnSuccess");
-		model.addAttribute("searchFormBean", senderDetailsFormBean);
+		model.addAttribute("senderSearchFormBean", senderSearchFormBean);
 		model.addAttribute("successfulSearchTxn", "Have to display SEARCH transactions here");
 	
 		
@@ -182,7 +181,7 @@ public class UserIndexController {
 	{
 		
 		model.addAttribute("transactionSelector", "newTxnSuccess");
-		model.addAttribute("senderDetailsFBean", senderDetailsFormBean);
+		model.addAttribute("senderDetailsFormBean", senderDetailsFormBean);
 		model.addAttribute("receiverDetailsFormBean", receiverDetailsFormBean);
 		model.addAttribute("successfulNewTxn", "Have to display NEW transaction here");
 			

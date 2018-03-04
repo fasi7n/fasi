@@ -8,6 +8,9 @@
 
 <div th:fragment="newSearchFrag">
 
+<!-- SUCCFUL NEW SEARCH BLOCK -->
+<div th:if="${successfulSearchTxn}" class="container" id="successfulSearchTxn">
+
 <div class="container">
 		<div class="row">
 					
@@ -15,7 +18,7 @@
 		
 
 			
-			<form role="form" th:action="@{/search}" th:object="${searchFormBean}" id="searchForm" method="GET">
+			<form role="form" th:action="@{/search}" th:object="${senderSearchFormBean}" id="searchForm" method="POST">
 						<fieldset>
 
 
@@ -88,6 +91,7 @@
 				</div>
 				<!-- CONTAINER DIV -->
 
+	</div>
 </div>
 
 </body>

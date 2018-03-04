@@ -23,12 +23,12 @@ public class SenderDetailsDAOImpl implements SenderDetailsDAO {
 	}
 
 	@Override
-	public List<SenderDetails> findSenderByFirst(String senderFirst) {
+	public List<SenderDetails> findAllSenderByFirst(String senderFirst) {
 		return senderDetailsRepository.findByFirstName(senderFirst);
 	}
 
 	@Override
-	public List<SenderDetails> findSenderByLast(String senderLast) {
+	public List<SenderDetails> findAllSenderByLast(String senderLast) {
 		return senderDetailsRepository.findByLastName(senderLast);
 	}
 

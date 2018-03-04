@@ -12,8 +12,8 @@ public interface SenderDetailsService {
 	
 	public SenderDetails findSenderByEmail(String senderEmail);
 	public SenderDetails findSenderByPhone(String senderPhone);
-	public List<SenderDetails> findSenderByFirst(String senderFirst);
-	public List<SenderDetails> findSenderByLast(String senderLast);
+	public List<SenderDetails> findAllSenderByFirst(String senderFirst);
+	public List<SenderDetails> findAllSenderByLast(String senderLast);
 	public SenderDetails saveSender(SenderDetails senderDetails);
 	
 

@@ -1,12 +1,14 @@
 package com.portfolio.configuration;
 
 import org.apache.commons.logging.Log;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.portfolio.LoadDummyContent;
 import com.portfolio.dao.SenderDetailsDAO;
 import com.portfolio.dao.SenderDetailsDAOImpl;
+import com.portfolio.model.SenderDetails;
 import com.portfolio.model.UserCredentials;
 import com.portfolio.model.UserDetails;
 import com.portfolio.model.UserRoles;
@@ -73,7 +75,11 @@ public class AppConfiguration {
 		return new SenderDetailsDAOImpl();
 	}
 	
-	
+	@Qualifier("newSenderDetailsBean")
+	@Bean SenderDetails senderSearchFormBean()
+	{
+		return new SenderDetails();
+	}
 	
 
 }

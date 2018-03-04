@@ -17,7 +17,7 @@
 	<!--	<div th:fragment="searchTxnFrag">
 		<div th:if="${successfulSearchTxn}" th:text="${successfulSearchTxn}">
 		</div>
-	</div>
+	</div> -->
 
 	<!-- FRAGMENT FOR NEW TRANSACTION -->
 	<div th:fragment="newTxnFrag">
@@ -42,7 +42,7 @@
 						</div>
 
 					
-					<form id="senderFindForm" role="form" th:action="@{/senderFindAction}" th:object="${senderDetailsFBean}" method="POST">
+					<form id="senderFindForm" role="form" th:action="@{/senderFindAction}" th:object="${senderDetailsFormBean}" method="POST">
 
 					<div class="row">
 										<div class="errorSpace">

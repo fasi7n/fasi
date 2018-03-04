@@ -13,8 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
+
+@Primary
 @Component
 @Entity
 public class SenderDetails {
