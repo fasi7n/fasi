@@ -14,7 +14,12 @@ public class SenderDetailsDAOImpl implements SenderDetailsDAO {
 
 	@Override
 	public SenderDetails findSenderByEmail(String senderEmail) {		
-		return senderDetailsRepository.findBySenderEmail(senderEmail);		
+		
+		//SenderDetails testsender = new SenderDetails();
+		//testsender = senderDetailsRepository.findBySenderEmail(senderEmail);
+		//System.out.println(testsender);
+		 
+		return senderDetailsRepository.findBySenderEmail(senderEmail);
 	}
 
 	@Override

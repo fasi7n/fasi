@@ -17,8 +17,8 @@
 		<div class="col-md-8 col-md-offset-2" id="searchPanel">
 		
 
-			
-			<form role="form" th:action="@{/search}" th:object="${senderSearchFormBean}" id="searchForm" method="POST">
+			<!-- th:action="@{/search}" -->
+			<form  th:action="@{/search}" id="searchSenderForm"  th:object="${senderSearchFormBean}" method="POST">
 						<fieldset>
 
 
@@ -43,7 +43,7 @@
 
 												<div class="form-group col-md-12">													
 													<label for="email">E-Mail: </label>
-													<input type="email" class="form-control" id="email" name="search_email_id" th:field="*{senderEmail}"> </input>													
+													<input type="email" class="form-control" id="email" name="search_email" th:field="*{senderEmail}"> </input>													
 												</div>
 
 												<div class="form-group col-md-12">
@@ -64,12 +64,14 @@
 												<div class="form-group">
 													<input type="submit"
 														class="form-control btn btn-primary btn-block"
+														id="srchSenderSubmit"
 														value="SEARCH" />
 												</div>
 
 												<div class="form-group">
 													<input type="reset"
 														class="form-control btn btn-warning btn-block"
+														id="clearsearchSender"
 														value="CLEAR" />
 												</div>
 
@@ -81,7 +83,34 @@
 
 							
 
-						
+				<div th:if="${searchResultsSuccess}" class="table" id="searchResultsTable">
+				
+							<div class="panel panel-default">
+							<div class="panel-heading">
+								<strong>See Search Results Below:</strong>
+							</div>							
+							</div><!-- PANEL DEFAULT ENDS -->
+							<div>
+							 <table class="table table-striped">
+  								<tr>
+   									 <th>Sender First</th>
+									 <th>Sender Last</th>
+									 <th>Primary Phone</th>
+									 <th>Secondary Phone</th>
+									 <th>Sender E-Mail</th>
+								</tr>
+								
+								<tr th:each="returnSenderSearchResults">
+									<td th:text="${returnSenderSearchResults[0].sender_id}"></td>
+									<td th:text="${returnSenderSearchResults[0].firstName}"></td>
+									<td th:text="${returnSenderSearchResults[0].lastName}"></td>
+									<td th:text="${returnSenderSearchResults[0].primaryPhone}"></td>	 
+									<td th:text="${returnSenderSearchResults[0].secondaryPhone}"></td>	
+									<td th:text="${returnSenderSearchResults[0].senderEmail}"></td>	  
+								 </tr>
+							</table> 
+							</div>
+				</div>
 
 
 				</div>

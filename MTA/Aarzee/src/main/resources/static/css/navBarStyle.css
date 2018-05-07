@@ -125,7 +125,7 @@ html, body {
   
  /* SECTION FOR FORMS */
   
-  #senderFindForm #receiverArea{	
+  #senderFindForm #receiverArea #searchSenderForm{	
 	padding:auto;
 }
   

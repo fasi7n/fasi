@@ -49,6 +49,9 @@ public class ReceiverDetails {
 	private List<ReceiverAddress> receiverAddress;
 	
 	
+	public ReceiverDetails()
+	{}
+	
 	
 
 	public int getReceiver_id() {

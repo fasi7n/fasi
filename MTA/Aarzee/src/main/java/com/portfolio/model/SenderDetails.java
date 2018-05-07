@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -43,16 +44,30 @@ public class SenderDetails {
 	@Column(name="SENDER_EMAIL")
 	private String senderEmail;
 	
-	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)	
+	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL, fetch = FetchType.LAZY)	
 	private List<SenderAddress> senderAddress;
 	
-	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)	
+	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL, fetch = FetchType.LAZY)	
 	private List<SenderPhotoID> senderPhotoID;
 		
-	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "senderDetails", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<ReceiverDetails> receivers;	
 	
 	
+	
+	public SenderDetails()
+	{
+		
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "SenderDetails [sender_id=" + sender_id + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", primaryPhone=" + primaryPhone + ", secondaryPhone=" + secondaryPhone + ", senderEmail="
+				+ senderEmail + ", senderAddress=" + senderAddress + ", senderPhotoID=" + senderPhotoID + ", receivers="
+				+ receivers + "]";
+	}
 	
 	
 

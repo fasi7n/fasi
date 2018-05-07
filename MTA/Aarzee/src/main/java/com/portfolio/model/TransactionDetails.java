@@ -52,6 +52,13 @@ public class TransactionDetails {
 	@Column(name="RECEIVER_FULLADDRESS")
 	private String receiverFullAddress;
 
+	
+	public TransactionDetails()
+	{}
+	
+	
+	
+	
 	public int getTransaction_id() {
 		return transaction_id;
 	}

@@ -125,3 +125,71 @@
 		    });
 		
  }
+ 
+
+
+ 
+jQuery(document).ready(function () {
+	   $("#searchSenderForm").submit(function (event) {
+	   
+		event.preventDefault();
+		   
+		var email = $("#email").val();
+		var phone = $("#phone").val();
+		var firstName = $("#firstName").val();
+		var lastName = $("#lastName").val();
+		
+		var selectedInput="";
+		var selectedInputName="";
+		
+		if($("#email").val()!='')
+			{
+			selectedInput = $("#email").val();
+			selectedInputName = "senderEmail";
+			}
+		else if($("#phone").val()!='')
+			{
+			selectedInput = $("#phone").val();
+			selectedInputName = "primaryPhone";
+			}
+		else if($("#firstName").val()!='')
+			{
+		selectedInput = $("#firstName").val();
+		selectedInputName = "firstName";
+			}
+		else if($("#lastName").val()!='')
+		{
+			selectedInput = $("#lastName").val();
+			selectedInputName = "lastName";
+		}
+	
+		var searchJson = {"selectedInputName":selectedInputName, "selectedInput":selectedInput};
+		searchSenderAjaxCall(searchJson);
+		
+		   
+	   });
+	   
+});
+	   
+	   
+function searchSenderAjaxCall(searchJson) {
+			  
+	$.ajax({
+    	
+		url: "/search",
+		type: "POST",
+		contentType: "application/json",		
+		dataType : 'json',
+		data: JSON.stringify(searchJson),
+        cache: false,
+        async:false,
+        
+        success: function(result) {
+        	if(result.returnSenderSearchResults!=null)
+    		{
+    		$('#srchSenderSubmit').prop('disabled', true);
+    		}
+        }
+    });
+
+}

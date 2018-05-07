@@ -41,6 +41,10 @@ public class SenderPhotoID {
 	private SenderDetails senderDetails;
 
 
+	public SenderPhotoID()
+	{}
+	
+	
 	public String getIdType() {
 		return idType;
 	}

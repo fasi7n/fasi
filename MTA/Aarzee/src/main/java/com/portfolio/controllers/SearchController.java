@@ -2,6 +2,7 @@ package com.portfolio.controllers;
 
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -36,15 +39,21 @@ private List<SenderDetails> returnSenderSearchResults;
 @Autowired
 private SenderDetails searchSenderDetails;
 
+
 @PostMapping
-public @ResponseBody List<SenderDetails> searchAction(@ModelAttribute("senderSearchFormBean") SenderDetails senderSearchFormBean, BindingResult bindingResult, Model model)
+public @ResponseBody List<SenderDetails> searchAction(@ModelAttribute("senderSearchFormBean") SenderDetails senderSearchFormBean, @RequestBody String searchJson,
+														BindingResult bindingResult, Model model)
 	{
 	
+	//String searchResult = "";
 	//verification
+	System.out.println("RESULT OF SENDER FORM BEAN----------------->>>>>>>>"+searchJson+"<<<>>>>>>>>"+searchJson);
+	 
 	System.out.println("senderSearchFormBean is NOT null" + (senderSearchFormBean) != null? true:false  );
 	
 	//MUST ADD RESET OF searchResultsSuccess in userIndexController or i will keep seeing older results everytime search page is visited.
 	//MUST ALSO SET or rename the senderDetails BEANS on dummy data creation and new txn (have to add beans to Config to return New or change obj name)
+	
 	
 	
 	if(senderSearchFormBean!=null)
@@ -55,6 +64,7 @@ public @ResponseBody List<SenderDetails> searchAction(@ModelAttribute("senderSea
 				returnSenderSearchResults.add(searchSenderDetails);
 				model.addAttribute("searchResultsSuccess", "SEE SEARCH RESULTS BELOW");
 				model.addAttribute("senderSearchResults", returnSenderSearchResults);
+				//searchResult = "success";
 				//return returnSenderSearchResults;
 			}
 		}
@@ -65,6 +75,7 @@ public @ResponseBody List<SenderDetails> searchAction(@ModelAttribute("senderSea
 				returnSenderSearchResults.add(searchSenderDetails);			
 				model.addAttribute("searchResultsSuccess", "SEE SEARCH RESULTS BELOW");
 				model.addAttribute("senderSearchResults", returnSenderSearchResults);
+				//searchResult = "success";
 				//return returnSenderSearchResults;
 			}
 		}
@@ -74,6 +85,7 @@ public @ResponseBody List<SenderDetails> searchAction(@ModelAttribute("senderSea
 			if(returnSenderSearchResults!=null) {
 				model.addAttribute("searchResultsSuccess", "SEE SEARCH RESULTS BELOW");
 				model.addAttribute("senderSearchResults", returnSenderSearchResults);
+				//searchResult = "success";
 				//return returnSenderSearchResults;
 			}
 		}
@@ -83,6 +95,7 @@ public @ResponseBody List<SenderDetails> searchAction(@ModelAttribute("senderSea
 			if(returnSenderSearchResults!=null) {
 				model.addAttribute("searchResultsSuccess", "SEE SEARCH RESULTS BELOW");			
 				model.addAttribute("senderSearchResults", returnSenderSearchResults);
+				//searchResult = "success";
 				//return returnSenderSearchResults;
 			}
 		}

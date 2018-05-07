@@ -41,6 +41,13 @@ public class SenderAddress {
 	@JoinColumn(name = "sender_id")
 	private SenderDetails senderDetails;
 
+
+	public SenderAddress()
+	{}
+	
+	
+	
+	
 	public int getAddress_id() {
 		return address_id;
 	}
