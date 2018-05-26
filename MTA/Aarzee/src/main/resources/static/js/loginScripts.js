@@ -106,7 +106,7 @@
  function verifyEmailExists(email) {
 	 
 	 var data = 'email='+ encodeURIComponent(email);
-	 
+	 console.log("IN VERIFY EMAIL EXISTS");
 		    $.ajax({
 		        		    	
 		    	url: "/registrationAction/verifyEmailTaken",
@@ -127,47 +127,54 @@
  }
  
 
-
+ /*
  
 jQuery(document).ready(function () {
-	   $("#searchSenderForm").submit(function (event) {
-	   
-		event.preventDefault();
-		   
-		var email = $("#email").val();
-		var phone = $("#phone").val();
-		var firstName = $("#firstName").val();
-		var lastName = $("#lastName").val();
+	 
+		//$('searchSenderForm').submit(function(e) {   
 		
-		var selectedInput="";
-		var selectedInputName="";
+	//	$("#searchSenderForm").submit(function(evt) {
+
+	 $('#searchSenderEmail').bind('change', function() {
+		 
+			evt.preventDefault();
+			evt.stopPropagation();
+			console.log("SUCCESS CALL FOR SEARCH");
+			
+			var email = $("#email").val();
+			var phone = $("#phone").val();
+			var firstName = $("#firstName").val();
+			var lastName = $("#lastName").val();
 		
-		if($("#email").val()!='')
+			var selectedInput="";
+			var selectedInputName="";
+		
+			if($("#email").val()!='')
 			{
 			selectedInput = $("#email").val();
 			selectedInputName = "senderEmail";
 			}
-		else if($("#phone").val()!='')
+			else if($("#phone").val()!='')
 			{
 			selectedInput = $("#phone").val();
 			selectedInputName = "primaryPhone";
 			}
-		else if($("#firstName").val()!='')
+			else if($("#firstName").val()!='')
 			{
-		selectedInput = $("#firstName").val();
-		selectedInputName = "firstName";
+				selectedInput = $("#firstName").val();
+				selectedInputName = "firstName";
 			}
-		else if($("#lastName").val()!='')
-		{
+			else if($("#lastName").val()!='')
+			{
 			selectedInput = $("#lastName").val();
 			selectedInputName = "lastName";
-		}
+			}
 	
-		var searchJson = {"selectedInputName":selectedInputName, "selectedInput":selectedInput};
-		searchSenderAjaxCall(searchJson);
+			var searchJson = {"selectedInputName":selectedInputName, "selectedInput":selectedInput};
+			searchSenderAjaxCall(encodeURIComponent(searchJson));
 		
 		   
-	   });
+		}); 
 	   
 });
 	   
@@ -182,14 +189,44 @@ function searchSenderAjaxCall(searchJson) {
 		dataType : 'json',
 		data: JSON.stringify(searchJson),
         cache: false,
-        async:false,
-        
+        async:false,        
         success: function(result) {
-        	if(result.returnSenderSearchResults!=null)
-    		{
-    		$('#srchSenderSubmit').prop('disabled', true);
-    		}
+        	$("#searchResultTemp1").html(result);
+            $('#searchResultTemp2').append("<option value='-1'>Select User</option>");
+            for ( var i = 0, len = result.length; i < len; ++i) {
+                var senderDetails = result[i];
+                $('#searchUsersSpace').append("<option value=\"" + user.name + "\">" + user.name + " " + user.address+ " " + user.phone + " " + user.zipCode +"</option>");
+            } 
         }
+
     });
 
 }
+*/
+ 
+jQuery(document).ready(function testFunction() {
+	
+		$("#searchSenderButton").on('click', function(e) {  
+			console.log("SUCCESS CALL FOR SEARCH NOn SUBMIT TYPE");	
+			evt.preventDefault();
+			evt.stopPropagation();
+			console.log("SUCCESS CALL FOR SEARCH NOn SUBMIT TYPE");	
+		$.ajax({
+    	
+		url: "/search",
+		//type: "POST",
+		contentType: "application/json",		
+		dataType : 'json',
+		data: JSON.stringify(searchJson),
+        cache: false,
+        async:false,
+        
+        success: function(result) {
+        	$("#searchResultTemp").html(result);
+        	console.log(result);
+        }
+
+		});
+	    });
+  });
+

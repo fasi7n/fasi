@@ -18,11 +18,13 @@
 		
 
 			<!-- th:action="@{/search}" -->
-			<form  th:action="@{/search}" id="searchSenderForm"  th:object="${senderSearchFormBean}" method="POST">
+			<!-- <form  th:action="@{/search}" id="searchSenderForm"  th:object="${senderSearchFormBean}" method="POST">  -->
+			<form  id="searchSenderForm"  th:object="${senderSearchFormBean}" > 
+			
 						<fieldset>
 
 
-					<div class="panel panel-default">
+							<div class="panel panel-default">
 							<div class="panel-heading">
 								<strong>Please search using one of the following criteria:</strong>
 							</div>							
@@ -38,12 +40,12 @@
 							<strong><p th:if="${searchSuccess}" th:text="${searchSuccess}"></p></strong>
 							</div>
 												
-					</div><!--  END OF COL DIV -->
+							</div><!--  END OF COL DIV -->
 					
 
 												<div class="form-group col-md-12">													
 													<label for="email">E-Mail: </label>
-													<input type="email" class="form-control" id="email" name="search_email" th:field="*{senderEmail}"> </input>													
+													<input type="email" class="form-control" id="searchSenderEmail" name="search_email" th:field="*{senderEmail}"> </input>													
 												</div>
 
 												<div class="form-group col-md-12">
@@ -61,12 +63,19 @@
 													<input type="text" class="form-control" id="lastName" name="search_lastName" th:field="*{lastName}"> </input>
 												</div>
 
-												<div class="form-group">
-													<input type="submit"
+													<div class="form-group">
+													<button class="form-control btn btn-primary btn-block"
+														id="searchSenderButton"
+														> Search - Non Submit Type </button> </div>   
+
+										<!-- 					
+											  <input type="submit" name="srchSenderSubmit"
 														class="form-control btn btn-primary btn-block"
 														id="srchSenderSubmit"
-														value="SEARCH" />
-												</div>
+														value="SEARCH" />   -->
+														
+														 
+											
 
 												<div class="form-group">
 													<input type="reset"
@@ -79,8 +88,11 @@
 										
 
 									</fieldset>
-								</form>
+		</form>
 
+							<div id="searchResultTemp1"></div>
+							<div id="searchResultTemp2"></div>
+							<div id="searchUsersSpace"></div>
 							
 
 				<div th:if="${searchResultsSuccess}" class="table" id="searchResultsTable">
